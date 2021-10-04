@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="318.0" style="-fx-background-image: url('file:src/main/resources/images/fondologin.png');" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="318.0" style="-fx-background-image: url('file:src/main/resources/images/fondologin.png');" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.PrimaryController">
    <children>
-      <Button fx:id="button1" layoutX="133.0" layoutY="176.0" mnemonicParsing="false" style="ç: ;" stylesheets="@../Styles/Login_Button.css" text="Entrar" />
+      <Button fx:id="btn_login" layoutX="133.0" layoutY="176.0" mnemonicParsing="false" onAction="#login" style="ç: ;" stylesheets="@../Styles/Login_Button.css" text="Entrar" />
       <Label layoutX="86.0" layoutY="55.0" text="Usuario" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
