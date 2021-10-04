@@ -65,6 +65,7 @@ public class PrimaryController {
 					stage2.setResizable(false);
 					stage2.initModality(Modality.APPLICATION_MODAL);
 					stage2.show();
+					System.out.println("se ha cerrado el usuario");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
