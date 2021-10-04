@@ -1,4 +1,4 @@
-package AccesoArchivos.AccesoArchivos;
+package models.user_folder;
 
 public class User {
 	private String name;

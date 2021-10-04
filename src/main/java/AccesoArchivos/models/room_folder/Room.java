@@ -1,7 +1,4 @@
-package AccesoArchivos.AccesoArchivos;
-
-import java.util.ArrayList;
-import java.util.List;
+package models.room_folder;
 
 public class Room {
 	private String name;
