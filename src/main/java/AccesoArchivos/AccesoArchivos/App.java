@@ -7,18 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.P_Attack.ExtraDAO;
-import models.P_Character.RolDAO;
-import models.P_User.UserDAO;
-import utils.Conexion;
 
 import java.io.IOException;
 
-import P_Game.SesionDAO;
-
-/**
- * JavaFX App
- */
 public class App extends Application {
 
 public void start(Stage stage) throws IOException {
@@ -29,9 +20,9 @@ public void start(Stage stage) throws IOException {
 		Scene scene= new Scene(root);
 		Stage stage2= new Stage();
 		stage2.setScene(scene);
-		//Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-		//stage2.getIcons().add(image);
-		stage2.setTitle("Autenticar Usuario");
+		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+		stage2.getIcons().add(image);
+		stage2.setTitle("Chat XML");
 		stage2.setResizable(false);;
 		stage2.initModality(Modality.APPLICATION_MODAL);
 		

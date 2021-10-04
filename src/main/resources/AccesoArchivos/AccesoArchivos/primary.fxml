@@ -4,12 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="318.0" style="-fx-background-image: url('file:src/main/resources/images/fondologin.png');" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="133.0" layoutY="176.0" mnemonicParsing="false" text="Entrar" />
-      <Label layoutX="86.0" layoutY="55.0" text="Usuario" />
-      <Label layoutX="86.0" layoutY="115.0" text="Contraseña" />
+      <Button fx:id="button1" layoutX="133.0" layoutY="176.0" mnemonicParsing="false" style="ç: ;" stylesheets="@../Styles/Login_Button.css" text="Entrar" />
+      <Label layoutX="86.0" layoutY="55.0" text="Usuario" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="86.0" layoutY="115.0" text="Contraseña" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <TextField layoutX="85.0" layoutY="79.0" />
       <TextField layoutX="83.0" layoutY="142.0" />
    </children>
