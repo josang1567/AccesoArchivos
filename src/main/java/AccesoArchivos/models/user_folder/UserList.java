@@ -1,4 +1,4 @@
-package models.user_folder;
+package AccesoArchivos.models.user_folder;
 
 import java.io.Serializable;
 

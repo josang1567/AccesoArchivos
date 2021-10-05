@@ -1,10 +1,10 @@
-package models.message_folder;
+package AccesoArchivos.models.message_folder;
 
 
 import java.time.LocalDateTime;
 
-import models.room_folder.Room;
-import models.user_folder.User;
+import AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.models.user_folder.User;
 
 public class Message {
 	

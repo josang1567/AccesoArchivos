@@ -1,10 +1,10 @@
-package models.room_folder;
+package AccesoArchivos.models.room_folder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.message_folder.Message;
-import models.user_folder.User;
+import AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.models.user_folder.User;
 
 public class Room {
 	
