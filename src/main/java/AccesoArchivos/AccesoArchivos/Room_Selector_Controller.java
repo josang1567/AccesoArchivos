@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class Room_Selector_Controller {
@@ -16,6 +17,8 @@ public class Room_Selector_Controller {
 	ObservableList<Room> rooms;
 	private User user;		
 	
+	@FXML
+	protected Pane options_Pane;
 	@FXML
 	protected Button btn_user;
 	@FXML
@@ -53,6 +56,16 @@ public class Room_Selector_Controller {
 	
 	public void updateRooms() {
 		
+	}
+	
+	@FXML
+	private void open_Options_Pane() {
+		options_Pane.setVisible(true);
+	}
+	
+	@FXML
+	private void close_Options_Pane() {
+		options_Pane.setVisible(false);
 	}
 	
     @FXML
