@@ -70,13 +70,13 @@ public class Room {
 	public void setLog_users(List<User> log_users) {
 		this.log_users = log_users;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", name=" + name + ", description=" + description + ", messages=" + messages
 				+ ", log_users=" + log_users + "]";
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -3,6 +3,7 @@ package AccesoArchivos.AccesoArchivos;
 import java.io.File;
 import java.io.IOException;
 
+import AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.models.user_folder.User;
 import javafx.beans.property.SimpleStringProperty;
@@ -78,6 +79,15 @@ public class Room_Selector_Controller {
 			root = loader.load();
 			Scene scene= new Scene(root);
 			Chat_Room_Controller chat_room= loader.getController();
+			
+			Message m1=new Message(0, null, "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
+			Message m2=new Message(0, null, "que pasa xd", user, room);
+			ObservableList<Message> messages=FXCollections.observableArrayList();
+			messages.add(m1);
+			messages.add(m2);
+			room.setMessages(messages);
+			
+			
 			chat_room.setController(user,room);
 			Stage stage2= new Stage();
 			stage2.setScene(scene);
