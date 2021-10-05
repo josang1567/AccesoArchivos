@@ -11,11 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="600.0" style="-fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Room_Selector_Controller">
    <children>
-      <TableView fx:id="table_room" layoutY="39.0" prefHeight="334.0" prefWidth="600.0">
+      <TableView fx:id="table_room" layoutY="39.0" onKeyReleased="#select_Room" onMouseClicked="#select_Room" prefHeight="334.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="col_asunto" prefWidth="134.66665136814117" text="Asunto" />
-          <TableColumn fx:id="col_description" prefWidth="461.3333282470703" text="Descripción" />
+          <TableColumn fx:id="col_asunto" prefWidth="216.6666818857193" maxWidth="300" text="Asunto" />
+          <TableColumn fx:id="col_description" editable="false" prefWidth="381.99998474121094" maxWidth="300" text="Descripción" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <GridPane layoutX="476.0" layoutY="7.0" prefHeight="26.0" prefWidth="110.0">
         <columnConstraints>

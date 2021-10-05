@@ -1,19 +1,27 @@
 package AccesoArchivos.AccesoArchivos;
 
 import java.io.File;
+import java.io.IOException;
 
 import AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.models.user_folder.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Room_Selector_Controller {
 	
@@ -36,9 +44,11 @@ public class Room_Selector_Controller {
 	
 	public void setController(User u) {
 		//falta cargar datos...
+		user=u;
 		btn_user.setText(u.getName());
 		rooms=FXCollections.observableArrayList();
-		rooms.add(new Room(1,"prueba","desc prueba",null,null));
+		rooms.add(new Room(1,"prueba","123456789/123456789/123456789/123456789/"+"\n"+
+		"ffffffffffffffffffffffffffffffffffffffffffff",null,null));
 		rooms.add(new Room(2,"prueba2","desc prueba2",null,null));
 		table_room.setItems(rooms);
 		setTableAndDetailsInfo();
@@ -61,6 +71,61 @@ public class Room_Selector_Controller {
 	}
 	
 	public void enterRoom() {
+		
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("chat_room.fxml"));
+			Parent root;
+			root = loader.load();
+			Scene scene= new Scene(root);
+			Chat_Room_Controller chat_room= loader.getController();
+			chat_room.setController(user,room);
+			Stage stage2= new Stage();
+			stage2.setScene(scene);
+			Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+			stage2.getIcons().add(image);
+			stage2.setTitle("Chat XML");
+			stage2.setResizable(false);;
+			stage2.initModality(Modality.WINDOW_MODAL);
+			
+			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
+			stage.close();
+			
+			stage2.show();
+			
+			
+			stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent e) {				
+					
+					try {			
+						
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
+						Parent root = loader.load();
+						Scene scene= new Scene(root);
+						Room_Selector_Controller room_selector= loader.getController();
+						room_selector.setController(user);
+						Stage stage2= new Stage();
+						stage2.setScene(scene);
+						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+						stage2.getIcons().add(image);
+						stage2.setTitle("Chat XML");
+						stage2.setResizable(false);;
+						stage2.initModality(Modality.WINDOW_MODAL);
+						stage2.show();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			});
+			
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
 		
 	}
 	
