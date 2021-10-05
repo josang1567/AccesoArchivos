@@ -9,6 +9,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.models.message_folder.MessageList;
+import AccesoArchivos.utils.JAXBManagerMessages;
+
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="UserList")
@@ -29,8 +33,16 @@ public class UserList  implements Serializable{
 	public void addUser(User newUser) {
 		this.Users.add(newUser);
 	}
-	public void removeUser(User newUser) {
-		this.Users.remove(newUser);
+	public void removeUser(User OldUser,List<Message> ml) {
+		for (int i = 0; i < ml.size(); i++) {
+			if(ml.get(i).getUser().equals(OldUser)) {
+				ml.get(i).getUser().setId(i);
+				ml.get(i).getUser().setName(OldUser.getName()+"_Old");
+				ml.get(i).getUser().setOnline(false);
+				ml.get(i).getUser().setPassword(OldUser.getPassword());
+				JAXBManagerMessages.marshal(bl, "");
+			}
+		}
 	}
 	
 }
