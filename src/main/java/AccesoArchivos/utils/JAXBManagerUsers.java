@@ -11,9 +11,10 @@ import javax.xml.bind.Marshaller;
 
 import AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.models.room_folder.RoomList;
+import AccesoArchivos.models.user_folder.UserList;
 
 public class JAXBManagerUsers {
-	public static void marshal(RoomList ul, String f)throws JAXBException{
+	public static void marshal(UserList ul, String f)throws JAXBException{
 		marshal(ul, "UsersList.xml");
 	}
 	public static void mashal(RoomList ul, String roomList) throws JAXBException,IOException{
