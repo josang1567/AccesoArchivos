@@ -22,6 +22,8 @@ public class Room_Selector_Controller {
 	@FXML
 	protected Button btn_user;
 	@FXML
+	protected Button btn_enter;
+	@FXML
 	protected TableView<Room> table_room;
 	@FXML
 	protected TableColumn<Room, String> col_asunto;
@@ -52,6 +54,10 @@ public class Room_Selector_Controller {
 	    		return v;
 	    	});
 		}
+	}
+	
+	public void enterRoom() {
+		
 	}
 	
 	public void updateRooms() {
