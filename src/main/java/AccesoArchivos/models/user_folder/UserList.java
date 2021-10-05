@@ -34,23 +34,8 @@ public class UserList  implements Serializable{
 	public void addUser(User newUser) {
 		this.Users.add(newUser);
 	}
-	public void removeUser(User OldUser,List<Message> ml) {
-		MessageList lista= new MessageList();
-		for (int i = 0; i < ml.size(); i++) {
-			if(ml.get(i).getUser().equals(OldUser)) {
-				ml.get(i).getUser().setId(i);
-				ml.get(i).getUser().setName(OldUser.getName()+"_Old");
-				ml.get(i).getUser().setOnline(false);
-				ml.get(i).getUser().setPassword(OldUser.getPassword());
-				lista.addMessages(ml.get(i));
-				try {
-					JAXBManagerMessages.marshal(lista, "MessagesList.xml");
-				} catch (JAXBException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				};
-			}
-		}
+	public void removeUser(User OldUser) {
+		OldUser.setName(OldUser.getName()+"_Erased");
 	}
 	
 }
