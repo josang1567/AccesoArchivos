@@ -20,6 +20,9 @@ public class Room_Selector_Controller {
 	@FXML
 	protected TableColumn<Room, String> col_description;
 	
+	public void setController() {
+		
+	}
 	
     @FXML
     private void changeColorUserName() {
