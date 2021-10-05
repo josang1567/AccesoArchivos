@@ -10,21 +10,21 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.models.room_folder.UserList;
+import AccesoArchivos.models.room_folder.RoomList;
 
-public class JAXBManageUsers {
-	public static void marshal(UserList ul, String f)throws JAXBException{
+public class JAXBManagerUsers {
+	public static void marshal(RoomList ul, String f)throws JAXBException{
 		marshal(ul, "UsersList.xml");
 	}
-	public static void mashal(UserList ul, String roomList) throws JAXBException,IOException{
+	public static void mashal(RoomList ul, String roomList) throws JAXBException,IOException{
 		marshal(ul, new File(roomList));
 	}
 	
-public static void marshal(UserList ul, File f) throws IOException, JAXBException {
+public static void marshal(RoomList ul, File f) throws IOException, JAXBException {
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
 		
-		JAXBContext context= JAXBContext.newInstance(UserList.class);
+		JAXBContext context= JAXBContext.newInstance(RoomList.class);
 		
 		Marshaller m= context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

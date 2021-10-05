@@ -11,7 +11,7 @@ import javax.xml.bind.Marshaller;
 
 import AccesoArchivos.models.message_folder.MessageList;
 import AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.models.room_folder.UserList;
+import AccesoArchivos.models.room_folder.RoomList;
 
 public class JAXBManagerMessages {
 	public static void marshal(MessageList ml, String f)throws JAXBException{
