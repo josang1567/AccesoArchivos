@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import models.message_folder.Message;
+
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="UserList")
@@ -26,6 +26,11 @@ public class UserList  implements Serializable{
 		Users = users;
 	}
 	
-	public void
+	public void addUser(User newUser) {
+		this.Users.add(newUser);
+	}
+	public void removeUser(User newUser) {
+		this.Users.remove(newUser);
+	}
 	
 }
