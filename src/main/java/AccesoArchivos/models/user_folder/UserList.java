@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,13 +35,20 @@ public class UserList  implements Serializable{
 		this.Users.add(newUser);
 	}
 	public void removeUser(User OldUser,List<Message> ml) {
+		MessageList lista= new MessageList();
 		for (int i = 0; i < ml.size(); i++) {
 			if(ml.get(i).getUser().equals(OldUser)) {
 				ml.get(i).getUser().setId(i);
 				ml.get(i).getUser().setName(OldUser.getName()+"_Old");
 				ml.get(i).getUser().setOnline(false);
 				ml.get(i).getUser().setPassword(OldUser.getPassword());
-				JAXBManagerMessages.marshal(bl, "");
+				lista.addMessages(ml.get(i));
+				try {
+					JAXBManagerMessages.marshal(lista, "MessagesList.xml");
+				} catch (JAXBException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				};
 			}
 		}
 	}
