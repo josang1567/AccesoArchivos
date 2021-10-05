@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class RoomList {
 	@XmlElement(name="Rooms",type=Room.class)
-	private List<Room> Rooms = new ArrayList();
+	private static List<Room> Rooms = new ArrayList();
 
 	public RoomList() {}
 

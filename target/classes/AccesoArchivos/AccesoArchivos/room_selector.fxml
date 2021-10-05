@@ -12,9 +12,8 @@
    <children>
       <TableView fx:id="table_room" layoutY="39.0" prefHeight="361.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="col_asunto" prefWidth="269.999987244606" text="Asunto" />
-          <TableColumn fx:id="col_description" prefWidth="235.33333587646484" text="Descripción" />
-            <TableColumn fx:id="col_enter" editable="false" minWidth="0.0" prefWidth="94.66659545898438" sortable="false" />
+          <TableColumn fx:id="col_asunto" prefWidth="134.66665136814117" text="Asunto" />
+          <TableColumn fx:id="col_description" prefWidth="461.3333282470703" text="Descripción" />
         </columns>
       </TableView>
       <GridPane layoutX="476.0" layoutY="7.0" prefHeight="26.0" prefWidth="110.0">
