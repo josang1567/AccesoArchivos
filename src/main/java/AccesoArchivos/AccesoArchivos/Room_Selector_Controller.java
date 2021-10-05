@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
-import models.P_Character.Character;
 
 public class Room_Selector_Controller {
 	
@@ -20,8 +19,6 @@ public class Room_Selector_Controller {
 	protected TableColumn<Room, String> col_asunto;
 	@FXML
 	protected TableColumn<Room, String> col_description;
-	@FXML
-	protected TableColumn<Room, String> col_enter;
 	
 	
     @FXML
