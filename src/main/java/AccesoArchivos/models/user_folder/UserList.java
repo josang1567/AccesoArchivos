@@ -36,7 +36,7 @@ public class UserList  implements Serializable{
 		this.Users.add(newUser);
 	}
 	public void removeUser(User OldUser) throws JAXBException {
-		UserList users= new UserList();
+	/*	UserList users= new UserList();
 		OldUser.setName(OldUser.getName()+"_Erased");
 		users.addUser(OldUser);
 		JAXBManagerUsers.marshal(users, "UsersList.xml");
