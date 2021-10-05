@@ -8,6 +8,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="RoomList")
@@ -28,6 +31,14 @@ public class RoomList {
 	
 	public void addRooms(Room newRoom) {
 		this.Rooms.add(newRoom);
+	}
+	
+	public ObservableList<Room> accesRoomsAsObservable() {
+		ObservableList<Room> result=FXCollections.observableArrayList();
+		for(Room r:Rooms) {
+			result.add(r);
+		}
+		return result;
 	}
 	
 }

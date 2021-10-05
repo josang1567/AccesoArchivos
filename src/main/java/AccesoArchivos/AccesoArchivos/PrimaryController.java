@@ -1,12 +1,10 @@
 package AccesoArchivos.AccesoArchivos;
 
-import java.io.File;
 import java.io.IOException;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,10 +20,6 @@ public class PrimaryController {
 	@FXML
 	protected Button btn_login;
 	
-	public void setController(PrimaryController me) {
-		this.me=me;
-	}
-	
 	@FXML
 	private void login() throws IOException {
 
@@ -33,6 +27,8 @@ public class PrimaryController {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
 		Parent root = loader.load();
 		Scene scene= new Scene(root);
+		Room_Selector_Controller room_selector= loader.getController();
+		room_selector.setController();
 		Stage stage2= new Stage();
 		stage2.setScene(scene);
 		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");

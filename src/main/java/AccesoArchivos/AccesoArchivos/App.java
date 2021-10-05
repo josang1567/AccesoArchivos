@@ -19,7 +19,6 @@ public void start(Stage stage) throws IOException {
 		Parent root = loader.load();
 		Scene scene= new Scene(root);
 		PrimaryController primary= loader.getController();
-		primary.setController(primary);
 		Stage stage2= new Stage();
 		stage2.setScene(scene);
 		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
