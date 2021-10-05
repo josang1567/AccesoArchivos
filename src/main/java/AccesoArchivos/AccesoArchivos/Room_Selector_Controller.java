@@ -1,9 +1,5 @@
 package AccesoArchivos.AccesoArchivos;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.models.user_folder.User;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,6 +14,7 @@ import javafx.scene.paint.Color;
 public class Room_Selector_Controller {
 	
 	ObservableList<Room> rooms;
+	private User user;		
 	
 	@FXML
 	protected Button btn_user;
@@ -28,8 +25,9 @@ public class Room_Selector_Controller {
 	@FXML
 	protected TableColumn<Room, String> col_description;
 	
-	public void setController() {
+	public void setController(User u) {
 		//falta cargar datos...
+		btn_user.setText(u.getName());
 		rooms=FXCollections.observableArrayList();
 		rooms.add(new Room(1,"prueba","desc prueba",null,null));
 		rooms.add(new Room(2,"prueba2","desc prueba2",null,null));

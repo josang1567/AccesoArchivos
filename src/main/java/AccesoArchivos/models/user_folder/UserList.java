@@ -15,6 +15,8 @@ import AccesoArchivos.models.message_folder.MessageList;
 import AccesoArchivos.utils.JAXBManagerMessages;
 import AccesoArchivos.utils.JAXBManagerRooms;
 import AccesoArchivos.utils.JAXBManagerUsers;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="UserList")
@@ -45,4 +47,11 @@ public class UserList  implements Serializable{
 		JAXBManagerRooms*/
 	}
 	
+	public ObservableList<User> accesUsersAsObservable() {
+		ObservableList<User> result=FXCollections.observableArrayList();
+		for(User u:Users) {
+			result.add(u);
+		}
+		return result;
+	}
 }

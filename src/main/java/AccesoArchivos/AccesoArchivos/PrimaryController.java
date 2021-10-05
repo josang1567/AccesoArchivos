@@ -1,7 +1,9 @@
 package AccesoArchivos.AccesoArchivos;
 
 import java.io.IOException;
+import java.util.List;
 
+import AccesoArchivos.models.user_folder.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-public class PrimaryController {
-	
-	PrimaryController me;
+public class PrimaryController { //login
 	
 	@FXML
 	protected Button btn_login;
@@ -28,7 +28,7 @@ public class PrimaryController {
 		Parent root = loader.load();
 		Scene scene= new Scene(root);
 		Room_Selector_Controller room_selector= loader.getController();
-		room_selector.setController();
+		room_selector.setController(new User(1,"prueba","",true));
 		Stage stage2= new Stage();
 		stage2.setScene(scene);
 		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
