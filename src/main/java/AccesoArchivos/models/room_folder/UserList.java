@@ -12,11 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="RoomList")
 
-public class RoomList {
+public class UserList {
 	@XmlElement(name="Rooms",type=Room.class)
 	private List<Room> Rooms = new ArrayList();
 
-	public RoomList() {}
+	public UserList() {}
 
 	public List<Room> getRooms() {
 		return Rooms;
