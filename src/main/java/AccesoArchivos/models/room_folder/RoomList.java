@@ -1,4 +1,4 @@
-package models.room_folder;
+package AccesoArchivos.models.room_folder;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package models.message_folder;
+package AccesoArchivos.models.message_folder;
 
 import java.io.Serializable;
 import java.util.ArrayList;
