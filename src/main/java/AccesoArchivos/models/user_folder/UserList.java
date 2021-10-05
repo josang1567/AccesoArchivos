@@ -20,7 +20,7 @@ import AccesoArchivos.utils.JAXBManagerUsers;
 @XmlRootElement(name="UserList")
 public class UserList  implements Serializable{
 	@XmlElement(name="Users",type=User.class)
-	private List<User> Users= new ArrayList();
+	private static List<User> Users= new ArrayList();
 
 	public UserList() {}
 
@@ -35,9 +35,11 @@ public class UserList  implements Serializable{
 	public void addUser(User newUser) {
 		this.Users.add(newUser);
 	}
-	public void removeUser(User OldUser) {
+	public void removeUser(User OldUser) throws JAXBException {
+		UserList users= new UserList();
 		OldUser.setName(OldUser.getName()+"_Erased");
-		jaxb
+		users.addUser(OldUser);
+		JAXBManagerUsers.marshal(users, "UsersList.xml");
 
 		/*JAXBManagerMessages;
 		JAXBManagerRooms*/
