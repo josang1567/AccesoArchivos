@@ -93,64 +93,17 @@ public class Room_Selector_Controller {
 		
 		if(rooms.size()>0) {
 			if(table_room.getSelectionModel().getSelectedItem()!=null) {
-				room= this.table_room.getSelectionModel().getSelectedItem();;
+				room= this.table_room.getSelectionModel().getSelectedItem();
+				btn_enter.setDisable(false);
 			}
-//			else {
-//				room=null;
-//				btn_delete_1.setDisable(true);
-//				btn_edit_1.setDisable(true);
-//			}
+			else {
+				room=null;
+				btn_enter.setDisable(true);
+			}
 
-			if(room!=null) {//setea los valores del chara
-				btn_delete_1.setDisable(false);
-				btn_edit_1.setDisable(false);
-				lab_name.setText(c.getName());
-				lab_universe.setText(c.getUniverse());
-				lab_band.setText(c.getBand());
-				lab_rol.setText(c.getRol().getName());
-				lab_power.setText(
-						(c.getHp()
-						+c.getAtk()
-						+c.getDef()
-						+c.getSpe())+"");
-				
-				File f=new File("file:"+c.getPhoto_face());
-				Image img=new Image(f.getPath());
-				img_view_chara.setImage(img);		
-				
-				if(!c.getOst().matches("no_resource")) {
-					ost=new File(c.getOst());
-					
-					if(!running) {
-						btn_play.setDisable(false);
-					}
-				}
-				else {
-					btn_play.setDisable(true);
-				}				
-			}
-			else {// no hay seleccion --> todo a ""
-				lab_name.setText("");
-				lab_universe.setText("");
-				lab_band.setText("");
-				lab_rol.setText("");
-				lab_power.setText("");
-				img_view_chara.setImage(null);
-				ost=null;
-			}
 		}
 		else { //no hay charas
-			c=null;
-			lab_name.setText("");
-			lab_universe.setText("");
-			lab_band.setText("");
-			lab_rol.setText("");
-			lab_power.setText("");
-			img_view_chara.setImage(null);
-			ost=null;
-			btn_edit_1.setDisable(true);
-			btn_delete_1.setDisable(true);
-			btn_play.setDisable(true);
+			room=null;
 		}
 		
 	}

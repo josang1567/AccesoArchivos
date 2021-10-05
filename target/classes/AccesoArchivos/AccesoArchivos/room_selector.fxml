@@ -30,6 +30,6 @@
       </GridPane>
       <Pane fx:id="options_Pane" onMouseExited="#close_Options_Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0; -fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );;" visible="false" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
       <AnchorPane layoutX="274.0" layoutY="384.0" />
-      <Button fx:id="btn_enter" layoutX="250.0" layoutY="384.0" mnemonicParsing="false" onAction="#enterRoom" text="Entrar en la sala" />
+      <Button fx:id="btn_enter" disable="true" layoutX="250.0" layoutY="384.0" mnemonicParsing="false" onAction="#enterRoom" text="Entrar en la sala" />
    </children>
 </AnchorPane>
