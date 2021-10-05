@@ -15,5 +15,17 @@ import models.message_folder.Message;
 public class UserList  implements Serializable{
 	@XmlElement(name="Users",type=User.class)
 	private List<User> Users= new ArrayList();
+
+	public UserList() {}
+
+	public List<User> getUsers() {
+		return Users;
+	}
+
+	public void setUsers(List<User> users) {
+		Users = users;
+	}
+	
+	public void
 	
 }
