@@ -17,12 +17,24 @@ public class MessageList implements Serializable{
 	@XmlElement(name="Messages",type=Message.class)
 	private static List<Message> Messages= new ArrayList();
 
+	private static MessageList MiRepositorioM;
+	
+	private MessageList(List<Message> Messagges) {
+		this.Messages=Messages;
+	}
+	
+	public static MessageList getMiRepositorioM(List<Message> message) {
+		if(MiRepositorioM==null) {
+			MiRepositorioM=new MessageList(message);
+		}
+		return MiRepositorioM;
+	}
+	
 	public MessageList() {}
 
 	public List<Message> getMessages() {
 		return Messages;
 	}
-
 	public void setMessages(List<Message> messages) {
 		Messages = messages;
 	}
