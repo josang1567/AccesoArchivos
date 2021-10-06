@@ -8,10 +8,13 @@ import java.io.IOException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
+
+
+import AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.models.message_folder.MessageList;
-import AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.models.room_folder.RoomList;
+
 
 public class JAXBManagerMessages {
 	public static void marshal(MessageList ml, String f)throws JAXBException{
@@ -34,8 +37,20 @@ public static void marshal(MessageList ml, File f) throws IOException, JAXBExcep
 		writer.close();
 	}
 
-	public static Room unmarshal(File f) {
 
-		return null;
+	public static void unmarshal(File f) {
+		JAXBContext jaxbC;
+		try {
+			jaxbC=JAXBContext.newInstance(MessageList.class);
+			Unmarshaller um = jaxbC.createUnmarshaller();
+			MessageList r=(MessageList)um.unmarshal(new File("MessagesList.xml"));
+			for(Message i:r.getAllMessages()){
+				
+			}
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

@@ -2,6 +2,7 @@ package AccesoArchivos.models.message_folder;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class MessageList implements Serializable{
 	@XmlElement(name="Messages",type=Message.class)
-	private List<Message> Messages= new ArrayList();
+	private static List<Message> Messages= new ArrayList();
 
 	public MessageList() {}
 
@@ -29,5 +30,9 @@ public class MessageList implements Serializable{
 	public void addMessages(Message newMessage) {
 		this.Messages.add(newMessage);
 	}
-	
+	public static void getAllMessages(List<Message> m) {
+		for (int i = 0; i < m.size(); i++) {
+			
+		}
+	}
 }
