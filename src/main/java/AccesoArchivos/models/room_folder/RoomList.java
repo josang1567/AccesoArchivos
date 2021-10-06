@@ -1,8 +1,15 @@
 package AccesoArchivos.models.room_folder;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -39,6 +46,19 @@ public class RoomList {
 			result.add(r);
 		}
 		return result;
+	}
+	
+	public static void marshal(RoomList rl, File f) throws IOException, JAXBException {
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+
+		JAXBContext context = JAXBContext.newInstance(RoomList.class);
+
+		Marshaller m = context.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
+		m.marshal(rl, writer);
+		writer.close();
 	}
 	
 }

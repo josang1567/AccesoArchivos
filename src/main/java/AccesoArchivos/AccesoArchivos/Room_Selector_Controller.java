@@ -2,10 +2,17 @@ package AccesoArchivos.AccesoArchivos;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.JAXBException;
 
 import AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.utils.JAXBManagerRooms;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -80,12 +87,17 @@ public class Room_Selector_Controller {
 			Scene scene= new Scene(root);
 			Chat_Room_Controller chat_room= loader.getController();
 			
-			Message m1=new Message(0, null, "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
-			Message m2=new Message(0, null, "que pasa xd", user, room);
+			Message m1=new Message(0, LocalDateTime.now(), "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
+			Message m2=new Message(0, LocalDateTime.now(), "que pasa xd", user, room);
 			ObservableList<Message> messages=FXCollections.observableArrayList();
 			messages.add(m1);
 			messages.add(m2);
 			room.setMessages(messages);
+			List<User> usersprueba=new ArrayList();
+			usersprueba.add(new User(0,"name","",true));
+			usersprueba.add(new User(0,"prueba1","",true));
+			usersprueba.add(new User(0,"prueba2","",true));
+			room.setLog_users(usersprueba);
 			
 			
 			chat_room.setController(user,room);

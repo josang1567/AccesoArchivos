@@ -44,9 +44,10 @@ public static void marshal(MessageList ml, File f) throws IOException, JAXBExcep
 			jaxbC=JAXBContext.newInstance(MessageList.class);
 			Unmarshaller um = jaxbC.createUnmarshaller();
 			MessageList r=(MessageList)um.unmarshal(new File("MessagesList.xml"));
-			for(Message i:r.getAllMessages()){
-				
-			}
+			MessageList.Messages=r.Messages;
+//			for(Message i:r.getAllMessages()){
+//				
+//			}
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 package AccesoArchivos.AccesoArchivos;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import AccesoArchivos.models.message_folder.Message;
@@ -20,6 +21,7 @@ public class Chat_Room_Controller {
 	private User user;
 	private Room room;
 	private ObservableList<Message> messages=FXCollections.observableArrayList();
+	private ObservableList<User> users=FXCollections.observableArrayList();
 	
 	@FXML
 	protected Button btn_write;
@@ -42,13 +44,17 @@ public class Chat_Room_Controller {
 	public void setController(User u, Room r) {
 		user=u;
 		room=r;
-
 		lab_room_Name.setText(r.getName());
 		for(Message m:room.getMessages()) {
 			messages.add(m);
 		}
+		for(User ua:room.getLog_users()) {
+			users.add(ua);
+		}
 		table_messages.setItems(messages);
+		table_users.setItems(users);
 		setTableAndDetailsInfo();
+		updateRoomInfo();
 	}
 	
 	public void setTableAndDetailsInfo() {
@@ -61,14 +67,57 @@ public class Chat_Room_Controller {
 			
 			column_data.setCellValueFactory(eachroom->{
 	    		SimpleStringProperty v=new SimpleStringProperty();
-	    		v.setValue("04/01/2021\n"+eachroom.getValue().getData());
+	    		v.setValue(eachroom.getValue().getDate().toString()+"\n"+eachroom.getValue().getData());
 	    		return v;
 	    	});
+			
+			if (messages.size()>0) {
+				column_user.setCellValueFactory(eachuser->{
+		    		SimpleStringProperty v=new SimpleStringProperty();
+		    		v.setValue(eachuser.getValue().getName());
+		    		return v;
+		    	});
+			}
 		}
 	}
 	
 	private void updateRoomInfo(){
-		
+		//traerse los xml y actualizar messages y users arriba
+		messages=FXCollections.observableArrayList();
+		users=FXCollections.observableArrayList();
+		for(Message m:room.getMessages()) {
+			messages.add(m);
+		}
+		for(User u2:room.getLog_users()) {
+			users.add(u2);
+		}
+		table_messages.setItems(messages);
+		table_users.setItems(users);
+		setTableAndDetailsInfo();
+	}
+	
+	@FXML
+	private void send_Message() {
+		if(!txt_write.getText().matches("")) {
+			String message="";
+			int n=55;
+			for(int i=0;i<txt_write.getText().length();i++) {
+				if(n>0) {
+					message+=txt_write.getText().charAt(i);
+					n--;
+				}
+				else {	
+					message+="-\n"+txt_write.getText().charAt(i);
+					n=55;
+				}
+			}
+			
+			messages.add(new Message(0,LocalDateTime.now(),message,user,room));
+
+			//guardar los xml
+			txt_write.setText("");
+				
+		}
 	}
 	
 	

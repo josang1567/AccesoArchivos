@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Chat_Room_Controller">
    <children>
       <TextArea fx:id="txt_write" layoutX="23.0" layoutY="331.0" prefHeight="63.0" prefWidth="430.0" />
-      <TableView fx:id="table_messages" layoutX="23.0" layoutY="52.0" prefHeight="271.0" prefWidth="430.0" style="-fx-border-color: derive(-fx-base, 20%); -fx-background-insets: 0 0 0 0; -fx-background-color: white;">
+      <TableView fx:id="table_messages" layoutX="23.0" layoutY="52.0" prefHeight="271.0" prefWidth="430.0" stylesheets="@../Styles/Login_Button.css">
         <columns>
           <TableColumn fx:id="column_autor" maxWidth="100" prefWidth="93.33331489562988" text="Autor" />
           <TableColumn fx:id="column_data" maxWidth="328" prefWidth="334.6666946411133" text="Mensaje" />
@@ -25,10 +25,10 @@
       </TableView>
       <TableView fx:id="table_users" layoutX="462.0" layoutY="51.0" prefHeight="271.0" prefWidth="131.0">
         <columns>
-          <TableColumn fx:id="column_user" prefWidth="129.99998982747397" text="C1" />
+          <TableColumn fx:id="column_user" prefWidth="129.99998982747397" text="Usuarios en esta sala" />
         </columns>
       </TableView>
-      <Button fx:id="btn_write" layoutX="490.0" layoutY="348.0" mnemonicParsing="false" stylesheets="@../Styles/Login_Button.css" text="Enviar" />
+      <Button fx:id="btn_write" layoutX="490.0" layoutY="348.0" mnemonicParsing="false" onAction="#send_Message" stylesheets="@../Styles/Login_Button.css" text="Enviar" />
       <GridPane layoutX="23.0" layoutY="14.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -40,6 +40,6 @@
             <Label fx:id="lab_room_Name" text="Label" />
          </children>
       </GridPane>
-      <Pane layoutX="23.0" layoutY="52.0" prefHeight="271.0" prefWidth="430.0" />
+      <Pane layoutX="23.0" layoutY="52.0" prefHeight="262.0" prefWidth="404.0" />
    </children>
 </AnchorPane>
