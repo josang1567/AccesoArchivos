@@ -100,7 +100,7 @@ public class Chat_Room_Controller {
 	private void send_Message() {
 		if(!txt_write.getText().matches("")) {
 			String message="";
-			int n=55;
+			int n=50;
 			for(int i=0;i<txt_write.getText().length();i++) {
 				if(n>0) {
 					message+=txt_write.getText().charAt(i);
@@ -108,7 +108,7 @@ public class Chat_Room_Controller {
 				}
 				else {	
 					message+="-\n"+txt_write.getText().charAt(i);
-					n=55;
+					n=50;
 				}
 			}
 			

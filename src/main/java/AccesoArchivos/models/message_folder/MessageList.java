@@ -15,7 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class MessageList implements Serializable{
 	@XmlElement(name="Messages",type=Message.class)
-	private static List<Message> Messages= new ArrayList();
+	
+	public static List<Message> Messages= new ArrayList();
 
 	private static MessageList MiRepositorioM;
 	
