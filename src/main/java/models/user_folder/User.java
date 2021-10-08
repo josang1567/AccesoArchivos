@@ -1,4 +1,4 @@
-package AccesoArchivos.models.user_folder;
+package models.user_folder;
 
 public class User {
 	

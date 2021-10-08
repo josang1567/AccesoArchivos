@@ -3,26 +3,28 @@ package AccesoArchivos.AccesoArchivos;
 import java.io.IOException;
 import java.util.List;
 
-import AccesoArchivos.models.user_folder.User;
+import models.user_folder.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class PrimaryController { //login
-	
+
 	@FXML
 	protected Button btn_login;
 	
 	@FXML
 	private void login() throws IOException {
 
+		
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
 		Parent root = loader.load();

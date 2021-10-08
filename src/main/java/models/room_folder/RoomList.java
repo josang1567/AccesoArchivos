@@ -1,4 +1,4 @@
-package AccesoArchivos.models.room_folder;
+package models.room_folder;
 
 import java.io.BufferedWriter;
 import java.io.File;

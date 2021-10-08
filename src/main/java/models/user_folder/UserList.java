@@ -1,4 +1,4 @@
-package AccesoArchivos.models.user_folder;
+package models.user_folder;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import AccesoArchivos.models.message_folder.Message;
-import AccesoArchivos.models.message_folder.MessageList;
-import AccesoArchivos.utils.JAXBManagerMessages;
-import AccesoArchivos.utils.JAXBManagerRooms;
-import AccesoArchivos.utils.JAXBManagerUsers;
+import models.message_folder.Message;
+import models.message_folder.MessageList;
+import utils.JAXBManagerMessages;
+import utils.JAXBManagerRooms;
+import utils.JAXBManagerUsers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -41,7 +41,7 @@ public class UserList  implements Serializable{
 	UserList users= new UserList();
 		OldUser.setName(OldUser.getName()+"_Erased");
 		users.addUser(OldUser);
-		JAXBManagerUsers.marshal(users, "UsersList.xml");
+		//JAXBManagerUsers.marshal(users, "UsersList.xml");
 
 		/*JAXBManagerMessages;
 		JAXBManagerRooms*/

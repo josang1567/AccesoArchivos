@@ -1,4 +1,4 @@
-package AccesoArchivos.utils;
+package utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,10 +10,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import AccesoArchivos.models.message_folder.Message;
-import AccesoArchivos.models.message_folder.MessageList;
-import AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.models.room_folder.RoomList;
+import models.message_folder.MessageList;
+import models.room_folder.Room;
+import models.room_folder.RoomList;
 
 public class JAXBManagerRooms {
 	public static void marshal(RoomList bl, String f) throws JAXBException {

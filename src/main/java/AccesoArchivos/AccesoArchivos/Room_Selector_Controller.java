@@ -8,11 +8,11 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import AccesoArchivos.models.message_folder.Message;
-import AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.models.room_folder.RoomList;
-import AccesoArchivos.models.user_folder.User;
-import AccesoArchivos.utils.JAXBManagerRooms;
+import models.message_folder.Message;
+import models.room_folder.Room;
+import models.room_folder.RoomList;
+import models.user_folder.User;
+import utils.JAXBManagerRooms;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -111,7 +111,19 @@ public class Room_Selector_Controller {
 			
 			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
 			stage.close();
+			//------------------------------PROBANDO---------------------------------
 			
+			RoomList rl=new RoomList();
+			rl.addRooms(room);
+			try {
+				JAXBManagerRooms.marshal(rl, new File("pruebaroomlist.fxml"));
+			} catch (JAXBException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			
+			
+			//------------------------------------------------------------------------
 			stage2.show();
 			
 			
