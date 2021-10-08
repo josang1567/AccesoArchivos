@@ -14,7 +14,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,6 +25,19 @@ public class RoomList {
 	@XmlElement(name="Rooms",type=Room.class)
 	private static List<Room> Rooms = new ArrayList();
 
+	private static RoomList MiRepositorioR;
+	
+	private RoomList(List<Room> rooms) {
+		this.Rooms=rooms;
+	}
+	
+	public static RoomList getMiRepositorioM(List<Room> room) {
+		if(MiRepositorioR==null) {
+			MiRepositorioR=new RoomList(Rooms);
+		}
+		return MiRepositorioR;
+	}
+	
 	public RoomList() {}
 
 	public List<Room> getRooms() {
