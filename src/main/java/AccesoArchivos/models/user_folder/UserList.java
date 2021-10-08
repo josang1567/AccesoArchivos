@@ -9,11 +9,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import AccesoArchivos.models.message_folder.Message;
-import AccesoArchivos.models.message_folder.MessageList;
-import AccesoArchivos.utils.JAXBManagerMessages;
-import AccesoArchivos.utils.JAXBManagerRooms;
 import AccesoArchivos.utils.JAXBManagerUsers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +19,22 @@ public class UserList  implements Serializable{
 	@XmlElement(name="Users",type=User.class)
 	private static List<User> Users= new ArrayList();
 
+	private static UserList MiRepositorioU;
+	
+	private UserList(List<User> Users) {
+		this.Users=Users;
+	}
+	
+	public static UserList getMiRepositorioM(List<User> User) {
+		if(MiRepositorioU==null) {
+			MiRepositorioU=new UserList(Users);
+		}
+		return MiRepositorioU;
+	}
+	
+	
+	
+	
 	public UserList() {}
 
 	public List<User> getUsers() {
