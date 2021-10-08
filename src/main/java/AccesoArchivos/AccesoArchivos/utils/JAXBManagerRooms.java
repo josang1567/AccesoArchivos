@@ -36,18 +36,20 @@ public class JAXBManagerRooms {
 		writer.close();
 	}
 
-	public static RoomList unmarshal(File f) {
-		RoomList rl=null;
+	public RoomList charge(File f) {
 		JAXBContext jaxbC;
 		try {
-			jaxbC = JAXBContext.newInstance(RoomList.class);
+			jaxbC=JAXBContext.newInstance(RoomList.class);
 			Unmarshaller um = jaxbC.createUnmarshaller();
-			rl = (RoomList) um.unmarshal(new File("RoomList.xml"));
-			
+			RoomList rl=RoomList.getMiRepositorioM();
+			rl=(RoomList)um.unmarshal(new File("RoomList.xml"));
+			for (Room aux:rl.getRooms()){
+				rl.addRooms(aux);
+			}
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rl;
+		return null;
 	}
 }

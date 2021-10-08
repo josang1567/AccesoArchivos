@@ -30,8 +30,8 @@ public class PrimaryController { //login
 	@FXML
 	private void login() throws IOException {
 
-		for (int i = 0; i <userl.getUsers().size() ; i++) {
-			if(name.getText().equals(userl.getUsers().get(i).getName()) && password.getText().equals(userl.getUsers().get(i).getPassword()) ) {
+//		for (int i = 0; i <userl.getUsers().size() ; i++) {
+//			if(name.getText().equals(userl.getUsers().get(i).getName()) && password.getText().equals(userl.getUsers().get(i).getPassword()) ) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
 				Parent root = loader.load();
 				Scene scene= new Scene(root);
@@ -79,9 +79,9 @@ public class PrimaryController { //login
 				});
 				stage2.show();
 			}
-		}
+//		}
 		
 		
-	}
+//	}
 
 }

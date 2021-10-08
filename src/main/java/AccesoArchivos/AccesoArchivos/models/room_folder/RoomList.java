@@ -10,6 +10,7 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -31,9 +32,20 @@ public class RoomList {
 		this.Rooms=rooms;
 	}
 	
+	private RoomList() {
+		this.Rooms=new ArrayList();;
+	}
+	
 	public static RoomList getMiRepositorioM(List<Room> room) {
 		if(MiRepositorioR==null) {
 			MiRepositorioR=new RoomList(Rooms);
+		}
+		return MiRepositorioR;
+	}
+	
+	public static RoomList getMiRepositorioM() {
+		if(MiRepositorioR==null) {
+			MiRepositorioR=new RoomList();
 		}
 		return MiRepositorioR;
 	}
@@ -59,7 +71,7 @@ public class RoomList {
 		return result;
 	}
 	
-	public static void marshal(RoomList rl, File f) throws IOException, JAXBException {
+	public static void save(RoomList rl, File f) throws IOException, JAXBException {
 
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
 
@@ -70,6 +82,22 @@ public class RoomList {
 		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
 		m.marshal(rl, writer);
 		writer.close();
+	}
+	
+	public RoomList charge(File f) {
+		JAXBContext jaxbC;
+		try {
+			jaxbC=JAXBContext.newInstance(RoomList.class);
+			Unmarshaller um = jaxbC.createUnmarshaller();
+			RoomList rl=(RoomList)um.unmarshal(new File("RoomList.xml"));
+			for (Room aux:rl.getRooms()){
+				addRooms(aux);
+			}
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }

@@ -29,10 +29,20 @@ public class UserList implements Serializable {
 	private UserList(List<User> Users) {
 		this.Users = Users;
 	}
+	private UserList() {
+		this.Users = new ArrayList();
+	}
 
 	public static UserList getMiRepositorioU(List<User> user) {
 		if (MiRepositorioU == null) {
 			MiRepositorioU = new UserList(user);
+		}
+		return MiRepositorioU;
+	}
+	
+	public static UserList getMiRepositorioU() {
+		if (MiRepositorioU == null) {
+			MiRepositorioU = new UserList();
 		}
 		return MiRepositorioU;
 	}

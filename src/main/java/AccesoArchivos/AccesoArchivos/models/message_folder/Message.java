@@ -11,7 +11,7 @@ import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 public class Message {
 	
 	private int id;
-	private LocalDateTime date;
+	private String date;
 	private String data;
 	@XmlTransient
 	private User user; //<-- ¿que pasa si borras el user?
@@ -29,10 +29,16 @@ public class Message {
 	public Message(int id, LocalDateTime date, String data, User user, Room room) {
 		super();
 		this.id = id;
-		this.date = date;
+		
 		this.data = data;
 		this.user = user;
 		this.room = room;
+		//convertir ldt a string:
+		String day = date.getDayOfMonth()+"";
+		String month = date.getMonth()+"";
+		String year= date.getYear()+"";
+		
+		this.date="("+day+"/"+month+"/"+year+")";
 	}
 
 	public int getId() {
@@ -43,11 +49,11 @@ public class Message {
 		this.id = id;
 	}
 
-	public LocalDateTime getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

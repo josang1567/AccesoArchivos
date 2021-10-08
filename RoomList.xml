@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<RoomList>
+    <Rooms>
+        <description>123456789/123456789/123456789/123456789/
+ffffffffffffffffffffffffffffffffffffffffffff</description>
+        <id>1</id>
+        <log_users>
+            <id>0</id>
+            <name>name</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba1</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba2</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <messages>
+            <data>123456789/123456789/123456789/123456789/12345678
+9/123456789/</data>
+            <date></date>
+            <id>0</id>
+        </messages>
+        <messages>
+            <data>que pasa xd</data>
+            <date></date>
+            <id>0</id>
+        </messages>
+        <name>prueba</name>
+    </Rooms>
+    <Rooms>
+        <description>123456789/123456789/123456789/123456789/
+ffffffffffffffffffffffffffffffffffffffffffff</description>
+        <id>1</id>
+        <log_users>
+            <id>0</id>
+            <name>name</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba1</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba2</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <messages>
+            <data>123456789/123456789/123456789/123456789/12345678
+9/123456789/</data>
+            <date>(8/OCTOBER/2021)</date>
+            <id>0</id>
+        </messages>
+        <messages>
+            <data>que pasa xd</data>
+            <date>(8/OCTOBER/2021)</date>
+            <id>0</id>
+        </messages>
+        <name>prueba</name>
+    </Rooms>
+</RoomList>

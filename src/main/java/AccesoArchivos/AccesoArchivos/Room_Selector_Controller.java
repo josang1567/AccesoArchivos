@@ -33,9 +33,9 @@ import javafx.stage.WindowEvent;
 
 public class Room_Selector_Controller {
 	
-	ObservableList<Room> rooms;
 	private User user;	
 	private Room room;
+	private RoomList rl=RoomList.getMiRepositorioM();
 	
 	@FXML
 	protected Pane options_Pane;
@@ -52,18 +52,19 @@ public class Room_Selector_Controller {
 	
 	public void setController(User u) {
 		//falta cargar datos...
+		rl=rl.charge(new File("RoomList.xml"));
+		
+		System.out.println(rl.getRooms().toString());
+		
 		user=u;
 		btn_user.setText(u.getName());
-		rooms=FXCollections.observableArrayList();
-		rooms.add(new Room(1,"prueba","123456789/123456789/123456789/123456789/"+"\n"+
-		"ffffffffffffffffffffffffffffffffffffffffffff",null,null));
-		rooms.add(new Room(2,"prueba2","desc prueba2",null,null));
-		table_room.setItems(rooms);
+		ObservableList<Room> OLrooms = rl.accesRoomsAsObservable();
+		table_room.setItems(OLrooms);
 		setTableAndDetailsInfo();
 	}
 	
 	public void setTableAndDetailsInfo() {
-		if (rooms.size()>0) {
+		if (rl.getRooms().size()>0) {
 			col_asunto.setCellValueFactory(eachroom->{
 	    		SimpleStringProperty v=new SimpleStringProperty();
 	    		v.setValue(eachroom.getValue().getName());
@@ -113,10 +114,10 @@ public class Room_Selector_Controller {
 			stage.close();
 			//------------------------------PROBANDO---------------------------------
 			
-			RoomList rl= RoomList.getMiRepositorioM(rooms);
+			rl= rl.charge(new File("RoomList.xml"));
 			rl.addRooms(room);
 			try {
-				JAXBManagerRooms.marshal(rl, new File("pruebaroomlist.fxml"));
+				JAXBManagerRooms.marshal(rl, new File("Roomlist.xml"));
 			} catch (JAXBException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
@@ -190,7 +191,7 @@ public class Room_Selector_Controller {
     @FXML
 	public void select_Room() { //actualizar esto cuando tenga tiempo por una variable power
 		
-		if(rooms.size()>0) {
+		if(rl.getRooms().size()>0) {
 			if(table_room.getSelectionModel().getSelectedItem()!=null) {
 				room= this.table_room.getSelectionModel().getSelectedItem();
 				btn_enter.setDisable(false);
