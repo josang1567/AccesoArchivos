@@ -31,10 +31,7 @@ public class UserList  implements Serializable{
 		}
 		return MiRepositorioU;
 	}
-	
-	
-	
-	
+
 	public UserList() {}
 
 	public List<User> getUsers() {
@@ -54,8 +51,6 @@ public class UserList  implements Serializable{
 		users.addUser(OldUser);
 		JAXBManagerUsers.marshal(users, "UsersList.xml");
 
-		/*JAXBManagerMessages;
-		JAXBManagerRooms*/
 	}
 	
 	public ObservableList<User> accesUsersAsObservable() {
