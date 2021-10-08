@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -13,8 +14,8 @@ import models.user_folder.User;
 import models.user_folder.UserList;
 
 public class JAXBManagerUsers {
-	public static void marshal(UserList ul, String f)throws JAXBException{
-		marshal(ul, "UsersList.xml");
+	public static void marshal(List<User> users, String f)throws JAXBException{
+		marshal(users, "UsersList.xml");
 	}
 	public static void mashal(UserList ul, String UserList) throws JAXBException,IOException{
 		marshal(ul, new File(UserList));

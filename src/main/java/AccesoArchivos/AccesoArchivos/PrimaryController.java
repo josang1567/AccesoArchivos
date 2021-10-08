@@ -20,7 +20,8 @@ public class PrimaryController { //login
 
 	@FXML
 	protected Button btn_login;
-	
+	@FXML
+	protected TextField name;
 	@FXML
 	private void login() throws IOException {
 

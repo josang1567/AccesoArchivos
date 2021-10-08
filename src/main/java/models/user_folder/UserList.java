@@ -19,12 +19,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="UserList")
-public class UserList  implements Serializable{
-	@XmlElement(name="Users",type=User.class)
-	private static List<User> Users= new ArrayList();
+@XmlRootElement(name = "UserList")
+public class UserList implements Serializable {
+	@XmlElement(name = "Users", type = User.class)
+	private static List<User> Users = new ArrayList();
 
-	public UserList() {}
+	private static UserList MiRepositorioU;
+
+	private UserList(List<User> Users) {
+		this.Users = Users;
+	}
+
+	public static UserList getMiRepositorioU(List<User> user) {
+		if (MiRepositorioU == null) {
+			MiRepositorioU = new UserList(user);
+		}
+		return MiRepositorioU;
+	}
 
 	public List<User> getUsers() {
 		return Users;
@@ -33,18 +44,15 @@ public class UserList  implements Serializable{
 	public void setUsers(List<User> users) {
 		Users = users;
 	}
-	
+
 	public void addUser(User newUser) {
 		this.Users.add(newUser);
 	}
 	public void removeUser(User OldUser) throws JAXBException {
-	UserList users= new UserList();
+		
 		OldUser.setName(OldUser.getName()+"_Erased");
-		users.addUser(OldUser);
-		//JAXBManagerUsers.marshal(users, "UsersList.xml");
+		JAXBManagerUsers.marshal(Users, "UsersList.xml");
 
-		/*JAXBManagerMessages;
-		JAXBManagerRooms*/
 	}
 	
 	public ObservableList<User> accesUsersAsObservable() {
