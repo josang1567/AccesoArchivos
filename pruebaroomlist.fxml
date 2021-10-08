@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <RoomList>
     <Rooms>
-        <description>123456789/123456789/123456789/123456789/
-ffffffffffffffffffffffffffffffffffffffffffff</description>
-        <id>1</id>
-        <log_users
+        <description>desc prueba2</description>
+        <id>2</id>
+        <log_users>
+            <id>0</id>
+            <name>name</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba1</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <log_users>
+            <id>0</id>
+            <name>prueba2</name>
+            <online>true</online>
+            <password></password>
+        </log_users>
+        <messages>
+            <data>123456789/123456789/123456789/123456789/12345678
+9/123456789/</data>
+            <date/>
+            <id>0</id>
+        </messages>
+        <messages>
+            <data>que pasa xd</data>
+            <date/>
+            <id>0</id>
+        </messages>
+        <name>prueba2</name>
+    </Rooms>
+</RoomList>

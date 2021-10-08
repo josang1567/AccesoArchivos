@@ -3,9 +3,9 @@ package AccesoArchivos.AccesoArchivos;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import models.message_folder.Message;
-import models.room_folder.Room;
-import models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

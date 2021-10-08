@@ -8,11 +8,11 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import models.message_folder.Message;
-import models.room_folder.Room;
-import models.room_folder.RoomList;
-import models.user_folder.User;
-import utils.JAXBManagerRooms;
+import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.utils.JAXBManagerRooms;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

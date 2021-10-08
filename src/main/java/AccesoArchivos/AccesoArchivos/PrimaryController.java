@@ -3,7 +3,7 @@ package AccesoArchivos.AccesoArchivos;
 import java.io.IOException;
 import java.util.List;
 
-import models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

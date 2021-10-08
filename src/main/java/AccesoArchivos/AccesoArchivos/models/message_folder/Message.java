@@ -1,18 +1,22 @@
-package models.message_folder;
+package AccesoArchivos.AccesoArchivos.models.message_folder;
 
 
 import java.time.LocalDateTime;
 
-import models.room_folder.Room;
-import models.user_folder.User;
+import javax.xml.bind.annotation.XmlTransient;
+
+import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 
 public class Message {
 	
 	private int id;
 	private LocalDateTime date;
 	private String data;
+	@XmlTransient
 	private User user; //<-- ¿que pasa si borras el user?
 	//private String user_name;  ???  <--solución?
+	@XmlTransient
 	private Room room;
 	
 	public Message() {
@@ -54,7 +58,7 @@ public class Message {
 	public void setData(String data) {
 		this.data = data;
 	}
-
+	@XmlTransient
 	public User getUser() {
 		return user;
 	}
@@ -62,7 +66,7 @@ public class Message {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	@XmlTransient
 	public Room getRoom() {
 		return room;
 	}

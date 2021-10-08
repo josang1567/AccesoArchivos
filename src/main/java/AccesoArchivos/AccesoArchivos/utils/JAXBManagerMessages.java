@@ -1,4 +1,4 @@
-package utils;
+package AccesoArchivos.AccesoArchivos.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,10 +10,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-
-
-import models.message_folder.Message;
-import models.message_folder.MessageList;
+import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.AccesoArchivos.models.message_folder.MessageList;
 
 
 public class JAXBManagerMessages {

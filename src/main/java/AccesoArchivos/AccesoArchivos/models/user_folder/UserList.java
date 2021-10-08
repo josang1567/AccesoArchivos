@@ -1,4 +1,4 @@
-package models.user_folder;
+package AccesoArchivos.AccesoArchivos.models.user_folder;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import models.message_folder.Message;
-import models.message_folder.MessageList;
-import utils.JAXBManagerMessages;
-import utils.JAXBManagerRooms;
-import utils.JAXBManagerUsers;
+import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.AccesoArchivos.models.message_folder.MessageList;
+import AccesoArchivos.AccesoArchivos.utils.JAXBManagerMessages;
+import AccesoArchivos.AccesoArchivos.utils.JAXBManagerRooms;
+import AccesoArchivos.AccesoArchivos.utils.JAXBManagerUsers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

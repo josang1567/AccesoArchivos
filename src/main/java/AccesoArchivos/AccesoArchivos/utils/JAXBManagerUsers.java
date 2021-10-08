@@ -1,4 +1,4 @@
-package utils;
+package AccesoArchivos.AccesoArchivos.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,8 +9,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import models.user_folder.User;
-import models.user_folder.UserList;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 
 public class JAXBManagerUsers {
 	public static void marshal(UserList ul, String f)throws JAXBException{

@@ -1,10 +1,10 @@
-package models.room_folder;
+package AccesoArchivos.AccesoArchivos.models.room_folder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.message_folder.Message;
-import models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 
 public class Room {
 	
@@ -73,8 +73,8 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", name=" + name + ", description=" + description + ", messages=" + messages
-				+ ", log_users=" + log_users + "]";
+		return "";//"Room [id=" + id + ", name=" + name + ", description=" + description + ", messages=" + messages
+				//+ ", log_users=" + log_users + "]";
 	}
 
 	@Override
