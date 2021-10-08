@@ -38,8 +38,7 @@ public class RoomList {
 		return MiRepositorioR;
 	}
 	
-	public RoomList() {}
-
+	
 	public List<Room> getRooms() {
 		return Rooms;
 	}
