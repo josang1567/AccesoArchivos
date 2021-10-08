@@ -113,7 +113,7 @@ public class Room_Selector_Controller {
 			stage.close();
 			//------------------------------PROBANDO---------------------------------
 			
-			RoomList rl=new RoomList();
+			RoomList rl= RoomList.getMiRepositorioM(rooms);
 			rl.addRooms(room);
 			try {
 				JAXBManagerRooms.marshal(rl, new File("pruebaroomlist.fxml"));
