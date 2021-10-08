@@ -1,11 +1,17 @@
 package AccesoArchivos.AccesoArchivos;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
+import javax.xml.bind.JAXBException;
+
 import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
+import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.utils.JAXBManagerRooms;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -97,7 +103,7 @@ public class Chat_Room_Controller {
 	}
 	
 	@FXML
-	private void send_Message() {
+	private void send_Message() throws IOException {
 		if(!txt_write.getText().matches("")) {
 			String message="";
 			int n=50;
@@ -114,7 +120,17 @@ public class Chat_Room_Controller {
 			
 			messages.add(new Message(0,LocalDateTime.now(),message,user,room));
 
-			//guardar los xml
+			RoomList rl=JAXBManagerRooms.unmarshal(new File("RoomList.xml"));
+			
+			rl.addRooms(room);
+			try {
+				JAXBManagerRooms.marshal(rl, new File("RoomList.xml"));
+			} catch (JAXBException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			
+			
 			txt_write.setText("");
 				
 		}

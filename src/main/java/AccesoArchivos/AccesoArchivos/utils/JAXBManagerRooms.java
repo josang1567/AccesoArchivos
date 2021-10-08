@@ -36,19 +36,18 @@ public class JAXBManagerRooms {
 		writer.close();
 	}
 
-	public static Room unmarshal(File f) {
+	public static RoomList unmarshal(File f) {
+		RoomList rl=null;
 		JAXBContext jaxbC;
 		try {
-			jaxbC = JAXBContext.newInstance(MessageList.class);
+			jaxbC = JAXBContext.newInstance(RoomList.class);
 			Unmarshaller um = jaxbC.createUnmarshaller();
-			MessageList ml = (MessageList) um.unmarshal(new File("MessagesList.xml"));
-//			for (Message i : ml.getMessages()) {
-//				MessageList.Messages.add(i);
-//			}
+			rl = (RoomList) um.unmarshal(new File("RoomList.xml"));
+			
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return rl;
 	}
 }
