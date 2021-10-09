@@ -36,4 +36,10 @@
         <online>true</online>
         <password>1</password>
     </Users>
+    <Users>
+        <id>1</id>
+        <name>ramnodmf</name>
+        <online>true</online>
+        <password>1234</password>
+    </Users>
 </UserList>

@@ -12,7 +12,6 @@ import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
-import AccesoArchivos.AccesoArchivos.utils.JAXBManagerRooms;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,9 +51,7 @@ public class Room_Selector_Controller {
 	
 	public void setController(User u) {
 		//falta cargar datos...
-		rl=rl.charge(new File("RoomList.xml"));
-		
-		System.out.println(rl.getRooms().toString());
+		rl.charge();
 		
 		user=u;
 		btn_user.setText(u.getName());
@@ -81,90 +78,86 @@ public class Room_Selector_Controller {
 	
 	public void enterRoom() {
 		
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("chat_room.fxml"));
-			Parent root;
-			root = loader.load();
-			Scene scene= new Scene(root);
-			Chat_Room_Controller chat_room= loader.getController();
-			
-			Message m1=new Message(0, LocalDateTime.now(), "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
-			Message m2=new Message(0, LocalDateTime.now(), "que pasa xd", user, room);
-			ObservableList<Message> messages=FXCollections.observableArrayList();
-			messages.add(m1);
-			messages.add(m2);
-			room.setMessages(messages);
-			List<User> usersprueba=new ArrayList();
-			usersprueba.add(new User(0,"name","",true));
-			usersprueba.add(new User(0,"prueba1","",true));
-			usersprueba.add(new User(0,"prueba2","",true));
-			room.setLog_users(usersprueba);
-			
-			
-			chat_room.setController(user,room);
-			Stage stage2= new Stage();
-			stage2.setScene(scene);
-			Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-			stage2.getIcons().add(image);
-			stage2.setTitle("Chat XML");
-			stage2.setResizable(false);;
-			stage2.initModality(Modality.WINDOW_MODAL);
-			
-			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
-			stage.close();
-			//------------------------------PROBANDO---------------------------------
-			
-			rl= rl.charge(new File("RoomList.xml"));
-			rl.addRoom(room);
-			try {
-				JAXBManagerRooms.marshal(rl, new File("Roomlist.xml"));
-			} catch (JAXBException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-			
-			
-			//------------------------------------------------------------------------
-			stage2.show();
-			
-			
-			stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent e) {				
-					
-					try {			
-						
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
-						Parent root = loader.load();
-						Scene scene= new Scene(root);
-						Room_Selector_Controller room_selector= loader.getController();
-						room_selector.setController(user);
-						Stage stage2= new Stage();
-						stage2.setScene(scene);
-						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-						stage2.getIcons().add(image);
-						stage2.setTitle("Chat XML");
-						stage2.setResizable(false);;
-						stage2.initModality(Modality.WINDOW_MODAL);
-						stage2.show();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
-				}
-			});
-			
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+//		try {
+//			FXMLLoader loader = new FXMLLoader(getClass().getResource("chat_room.fxml"));
+//			Parent root;
+//			root = loader.load();
+//			Scene scene= new Scene(root);
+//			Chat_Room_Controller chat_room= loader.getController();
+//			
+//			Message m1=new Message(0, LocalDateTime.now(), "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
+//			Message m2=new Message(0, LocalDateTime.now(), "que pasa xd", user, room);
+//			ObservableList<Message> messages=FXCollections.observableArrayList();
+//			messages.add(m1);
+//			messages.add(m2);
+//			room.setMessages(messages);
+//			List<User> usersprueba=new ArrayList();
+//			usersprueba.add(new User(0,"name","",true));
+//			usersprueba.add(new User(0,"prueba1","",true));
+//			usersprueba.add(new User(0,"prueba2","",true));
+//			room.setLog_users(usersprueba);
+//			
+//			
+//			chat_room.setController(user,room);
+//			Stage stage2= new Stage();
+//			stage2.setScene(scene);
+//			Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+//			stage2.getIcons().add(image);
+//			stage2.setTitle("Chat XML");
+//			stage2.setResizable(false);;
+//			stage2.initModality(Modality.WINDOW_MODAL);
+//			
+//			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
+//			stage.close();
+//			//------------------------------PROBANDO---------------------------------
+//			
+//			rl= rl.charge(new File("RoomList.xml"));
+//			rl.addRoom(room);
+//			try {
+//				JAXBManagerRooms.marshal(rl, new File("Roomlist.xml"));
+//			} catch (JAXBException e2) {
+//				// TODO Auto-generated catch block
+//				e2.printStackTrace();
+//			}
+//			
+//			
+//			//------------------------------------------------------------------------
+//			stage2.show();
+//			
+//			
+//			stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//				@Override
+//				public void handle(WindowEvent e) {				
+//					
+//					try {			
+//						
+//						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
+//						Parent root = loader.load();
+//						Scene scene= new Scene(root);
+//						Room_Selector_Controller room_selector= loader.getController();
+//						room_selector.setController(user);
+//						Stage stage2= new Stage();
+//						stage2.setScene(scene);
+//						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+//						stage2.getIcons().add(image);
+//						stage2.setTitle("Chat XML");
+//						stage2.setResizable(false);;
+//						stage2.initModality(Modality.WINDOW_MODAL);
+//						stage2.show();
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
+//					
+//				}
+//			});
+//			
+//		} catch (IOException e2) {
+//			// TODO Auto-generated catch block
+//			e2.printStackTrace();
+//		}
 		
 		
-		
-	}
-	
-	public void updateRooms() {
 		
 	}
 	

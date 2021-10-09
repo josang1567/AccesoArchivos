@@ -10,4 +10,29 @@
         <id>1</id>
         <name>Deportes</name>
     </Rooms>
+    <Rooms>
+        <description>Club de literatura</description>
+        <id>2</id>
+        <name>Literatura</name>
+    </Rooms>
+    <Rooms>
+        <description>Zona de juegos</description>
+        <id>3</id>
+        <name>Juegos</name>
+    </Rooms>
+    <Rooms>
+        <description>Zona de quimica</description>
+        <id>4</id>
+        <name>Quimica</name>
+    </Rooms>
+    <Rooms>
+        <description>Zona de programacion</description>
+        <id>5</id>
+        <name>Programacion</name>
+    </Rooms>
+    <Rooms>
+        <description>zona de noticias</description>
+        <id>6</id>
+        <name>noticias</name>
+    </Rooms>
 </RoomList>

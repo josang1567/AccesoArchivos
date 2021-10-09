@@ -15,16 +15,16 @@ public class Message {
 	private String data;
 	private User user; //<-- ¿que pasa si borras el user?
 	//private String user_name;  ???  <--solución?
-	private int id_room;
+	private Room id_room;
 	
 	public Message() {
 		this.date=null;
 		this.data="";
 		this.user=null;
-		this.id_room=-1;
+		this.id_room=null;
 	}
 	
-	public Message(int id, LocalDateTime date, String data, User user, int room) {
+	public Message(int id, LocalDateTime date, String data, User user, Room room) {
 		super();
 		this.id = id;
 		
@@ -71,11 +71,12 @@ public class Message {
 		this.user = user;
 	}
 	
-	public int getRoom() {
+	public Room getRoom() {
 		return id_room;
 	}
 
-	public void setRoom(int room) {
+	@XmlTransient
+	public void setRoom(Room room) {
 		this.id_room = room;
 	}
 

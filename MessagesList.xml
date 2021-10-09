@@ -4,7 +4,6 @@
         <data>mensaje0</data>
         <date>(9/OCTOBER/2021)</date>
         <id>0</id>
-        <room>0</room>
         <user>
             <id>1</id>
             <name>Fernando</name>
@@ -16,7 +15,6 @@
         <data>mensaje1</data>
         <date>(9/OCTOBER/2021)</date>
         <id>1</id>
-        <room>0</room>
         <user>
             <id>1</id>
             <name>Fernando</name>
@@ -28,7 +26,6 @@
         <data>mensaje2</data>
         <date>(9/OCTOBER/2021)</date>
         <id>2</id>
-        <room>0</room>
         <user>
             <id>1</id>
             <name>Fernando</name>
@@ -40,7 +37,6 @@
         <data>mensaje3</data>
         <date>(9/OCTOBER/2021)</date>
         <id>3</id>
-        <room>0</room>
         <user>
             <id>1</id>
             <name>Fernando</name>
