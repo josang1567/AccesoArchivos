@@ -19,16 +19,37 @@
             <data>mensaje0</data>
             <date>(9/OCTOBER/2021)</date>
             <id>0</id>
+            <room>0</room>
+            <user>
+                <id>1</id>
+                <name>Fernando</name>
+                <online>false</online>
+                <password>1234</password>
+            </user>
         </messages>
         <messages>
             <data>mensaje1</data>
             <date>(9/OCTOBER/2021)</date>
             <id>1</id>
+            <room>0</room>
+            <user>
+                <id>1</id>
+                <name>Fernando</name>
+                <online>false</online>
+                <password>1234</password>
+            </user>
         </messages>
         <messages>
             <data>mensaje2</data>
             <date>(9/OCTOBER/2021)</date>
             <id>2</id>
+            <room>0</room>
+            <user>
+                <id>1</id>
+                <name>Fernando</name>
+                <online>false</online>
+                <password>1234</password>
+            </user>
         </messages>
         <name>Matematicas</name>
     </Rooms>

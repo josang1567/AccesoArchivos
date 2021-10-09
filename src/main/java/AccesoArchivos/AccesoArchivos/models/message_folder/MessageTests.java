@@ -24,10 +24,10 @@ public class MessageTests {
 		ul.addUser(u0);
 		ul.addUser(u1);
 		
-		Message m0=new Message(0, LocalDateTime.now(), "mensaje0", u1, r0);
-		Message m1=new Message(1, LocalDateTime.now(), "mensaje1", u1, r0);
-		Message m2=new Message(2, LocalDateTime.now(), "mensaje2", u1, r0);
-		Message m3=new Message(3, LocalDateTime.now(), "mensaje3", u1, r0);
+		Message m0=new Message(0, LocalDateTime.now(), "mensaje0", u1, 0);
+		Message m1=new Message(1, LocalDateTime.now(), "mensaje1", u1, 0);
+		Message m2=new Message(2, LocalDateTime.now(), "mensaje2", u1, 0);
+		Message m3=new Message(3, LocalDateTime.now(), "mensaje3", u1, 0);
 		MessageList ml=MessageList.getMiRepositorioM();
 		ml.addMessages(m0);
 		ml.addMessages(m1);

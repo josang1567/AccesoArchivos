@@ -16,7 +16,7 @@ public class UserTests {
 		 * 
 		 * TEST DE SAVE
 		 * 
-		 *//*		
+		 */		
 		User u0= new User(0, "Javier", "1234", false);
 		User u1= new User(1, "Fernando", "1234", false);
 		User u2= new User(2, "Ramón", "1234", false);
@@ -36,14 +36,14 @@ public class UserTests {
 		}
 		
 		
-		*
+		/*
 		*TEST DE CHARGE
 		*
 		*/
 		
-		UserList ul=UserList.getMiRepositorioU();
-		ul.charge();
-		System.out.println(ul.getUsers());
+//		UserList ul=UserList.getMiRepositorioU();
+//		ul.charge();
+//		System.out.println(ul.getUsers());
 		
 	}
 

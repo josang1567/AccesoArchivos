@@ -16,7 +16,7 @@ public class RoomTests {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Room r0= new Room(0, "Matematicas", "Sala de mates", null, null);
+		/*Room r0= new Room(0, "Matematicas", "Sala de mates", null, null);
 		
 		User u0= new User(0, "Javier", "1234", false);
 		User u1= new User(1, "Fernando", "1234", false);	
@@ -43,12 +43,17 @@ public class RoomTests {
 		} catch (IOException | JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		///---------------TEST CHARGE-----------------
-//		RoomList rl=RoomList.getMiRepositorioM();
-//		rl.charge();
-//		System.out.println("test -->"+rl.getRooms()+"\nya no hay mas ");
+		User u1= new User(1, "Fernando", "1234", false);
+		Message m0=new Message(0, LocalDateTime.now(), "mensaje0", u1, 0);
+		Message m1=new Message(1, LocalDateTime.now(), "mensaje1", u1, 0);
+		Message m2=new Message(2, LocalDateTime.now(), "mensaje2", u1, 0);
+		
+		RoomList rl=RoomList.getMiRepositorioM();
+		rl.charge();
+		System.out.println("test -->"+rl.getRooms()+"\nya no hay mas ");
 	}
 
 }

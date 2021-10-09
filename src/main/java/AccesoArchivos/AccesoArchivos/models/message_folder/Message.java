@@ -13,24 +13,24 @@ public class Message {
 	private int id;
 	private String date;
 	private String data;
-	private int user; //<-- ¿que pasa si borras el user?
+	private User user; //<-- ¿que pasa si borras el user?
 	//private String user_name;  ???  <--solución?
-	private Room room;
+	private int id_room;
 	
 	public Message() {
 		this.date=null;
 		this.data="";
-		this.user=-1;
-		this.room=null;
+		this.user=null;
+		this.id_room=-1;
 	}
 	
-	public Message(int id, LocalDateTime date, String data, User user, Room room) {
+	public Message(int id, LocalDateTime date, String data, User user, int room) {
 		super();
 		this.id = id;
 		
 		this.data = data;
-		this.user = user.getId();
-		this.room = room;
+		this.user = user;
+		this.id_room = room;
 		//convertir ldt a string:
 		String day = date.getDayOfMonth()+"";
 		String month = date.getMonth()+"";
@@ -62,26 +62,26 @@ public class Message {
 	public void setData(String data) {
 		this.data = data;
 	}
-	@XmlTransient
-	public int getUser() {
+
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(int user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
-	@XmlTransient
-	public Room getRoom() {
-		return room;
+	
+	public int getRoom() {
+		return id_room;
 	}
 
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setRoom(int room) {
+		this.id_room = room;
 	}
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", date=" + date + ", data=" + data + ", user=" + user + ", room=" + room + "]";
+		return "Message [id=" + id + ", date=" + date + ", data=" + data + ", user=" + user + ", room=" + id_room + "]";
 	}
 	
 	@Override

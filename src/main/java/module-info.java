@@ -12,7 +12,8 @@ module AccesoArchivos.AccesoArchivos {
     
     exports AccesoArchivos.AccesoArchivos.models.user_folder to com.sun.xml.bind;
     exports AccesoArchivos.AccesoArchivos.models.message_folder to com.sun.xml.bind;
+    exports AccesoArchivos.AccesoArchivos.models.room_folder to com.sun.xml.bind;
     exports AccesoArchivos.AccesoArchivos;
 }
  
-
+//exports AccesoArchivos.AccesoArchivos.models.room_folder to module com.sun.xml.bind;
