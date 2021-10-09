@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.xml.bind.JAXBException;
+
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 import javafx.event.EventHandler;
@@ -14,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -25,15 +28,14 @@ public class PrimaryController { //login
 	UserList ul= null;
 	User user=null;
 
-	
 	@FXML
 	protected Button btn_login;
 	@FXML
     protected TextField txt_name;
     @FXML
-    protected TextField txt_password;
+    protected PasswordField txt_password;
 	@FXML
-	private void login() throws IOException {
+	private void login() throws IOException, JAXBException {
 		boolean login_register=false;
 		
 		if(!txt_name.getText().matches("")
@@ -55,6 +57,7 @@ public class PrimaryController { //login
 			if(user!=null) {
 				if(user.getPassword().matches(txt_password.getText())) {
 					login_register=true;
+					user.setOnline(true);
 				}
 				else {
 					//error contraseña incorrecta
@@ -74,6 +77,8 @@ public class PrimaryController { //login
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK){
 					user=new User(0,txt_name.getText(),txt_password.getText(),true);
+					ul.addUser(user);
+					ul.save();
 					login_register=true;
 					//mostrar mensaje de registro completo...
 					
