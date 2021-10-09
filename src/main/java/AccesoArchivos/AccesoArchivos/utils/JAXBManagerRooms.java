@@ -52,4 +52,17 @@ public class JAXBManagerRooms {
 		}
 		return null;
 	}
+
+	public static void unmarshal(File file) {
+		JAXBContext jaxbC;
+		try {
+			jaxbC=JAXBContext.newInstance(RoomList.class);
+			Unmarshaller um = jaxbC.createUnmarshaller();
+			RoomList r=(RoomList)um.unmarshal(new File("RoomList.xml"));
+		
+		}catch(JAXBException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
