@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -24,7 +23,7 @@ import javafx.collections.ObservableList;
 
 public class RoomList {
 	@XmlElement(name="Rooms",type=Room.class)
-	private static List<Room> Rooms = new ArrayList();
+	private List<Room> Rooms = new ArrayList();
 
 	private static RoomList MiRepositorioR;
 	
@@ -38,7 +37,7 @@ public class RoomList {
 	
 	public static RoomList getMiRepositorioM(List<Room> room) {
 		if(MiRepositorioR==null) {
-			MiRepositorioR=new RoomList(Rooms);
+			MiRepositorioR=new RoomList(room);
 		}
 		return MiRepositorioR;
 	}
@@ -59,45 +58,52 @@ public class RoomList {
 		Rooms = rooms;
 	}
 	
-	public void addRooms(Room newRoom) {
-		this.Rooms.add(newRoom);
+	public void addRoom(Room newRoom) {
+		if(this.Rooms!=null&&newRoom!=null) {
+			this.Rooms.add(newRoom);
+		}
+		else {
+			System.out.println("error: newRoom era null");
+		}
 	}
 	
 	public ObservableList<Room> accesRoomsAsObservable() {
 		ObservableList<Room> result=FXCollections.observableArrayList();
-		for(Room r:Rooms) {
-			result.add(r);
+		if(Rooms!=null) {
+			for(Room r:Rooms) {
+				result.add(r);
+			}
 		}
 		return result;
 	}
 	
-	public static void save(RoomList rl, File f) throws IOException, JAXBException {
+	public static void save() throws IOException, JAXBException {
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
-
-		JAXBContext context = JAXBContext.newInstance(RoomList.class);
-
-		Marshaller m = context.createMarshaller();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(new File("RoomsList.xml")));
+		
+		JAXBContext context= JAXBContext.newInstance(RoomList.class);
+		
+		Marshaller m= context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
-		m.marshal(rl, writer);
+		m.marshal(MiRepositorioR, writer);
 		writer.close();
 	}
 	
-	public RoomList charge(File f) {
+	public void charge() {
 		JAXBContext jaxbC;
 		try {
 			jaxbC=JAXBContext.newInstance(RoomList.class);
 			Unmarshaller um = jaxbC.createUnmarshaller();
-			RoomList rl=(RoomList)um.unmarshal(new File("RoomList.xml"));
-			for (Room aux:rl.getRooms()){
-				addRooms(aux);
+			RoomList rl=(RoomList)um.unmarshal(new File("RoomsList.xml"));
+			Rooms = new ArrayList();
+			for(Room r:rl.getRooms()){		
+				addRoom(r);	
 			}
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
 	}
 	
 }

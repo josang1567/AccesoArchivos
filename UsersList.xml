@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<UserList>
+    <Users>
+        <id>0</id>
+        <name>Javier</name>
+        <online>false</online>
+        <password>1234</password>
+    </Users>
+    <Users>
+        <id>1</id>
+        <name>Fernando</name>
+        <online>false</online>
+        <password>1234</password>
+    </Users>
+    <Users>
+        <id>2</id>
+        <name>Ramón</name>
+        <online>false</online>
+        <password>1234</password>
+    </Users>
+    <Users>
+        <id>3</id>
+        <name>Sara</name>
+        <online>false</online>
+        <password>1234</password>
+    </Users>
+</UserList>

@@ -115,7 +115,7 @@ public class Room_Selector_Controller {
 			//------------------------------PROBANDO---------------------------------
 			
 			rl= rl.charge(new File("RoomList.xml"));
-			rl.addRooms(room);
+			rl.addRoom(room);
 			try {
 				JAXBManagerRooms.marshal(rl, new File("Roomlist.xml"));
 			} catch (JAXBException e2) {

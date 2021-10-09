@@ -120,9 +120,10 @@ public class Chat_Room_Controller {
 			
 			messages.add(new Message(0,LocalDateTime.now(),message,user,room));
 
-			RoomList rl=JAXBManagerRooms.unmarshal(new File("RoomList.xml"));
+			RoomList rl;
+			rl.charge(new File("RoomList.xml"));
 			
-			rl.addRooms(room);
+			rl.addRoom(room);
 			try {
 				JAXBManagerRooms.marshal(rl, new File("RoomList.xml"));
 			} catch (JAXBException e2) {

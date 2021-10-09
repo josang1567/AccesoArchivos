@@ -1,20 +1,21 @@
 package AccesoArchivos.AccesoArchivos.models.user_folder;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
-import AccesoArchivos.AccesoArchivos.models.message_folder.MessageList;
-import AccesoArchivos.AccesoArchivos.utils.JAXBManagerMessages;
-import AccesoArchivos.AccesoArchivos.utils.JAXBManagerRooms;
-import AccesoArchivos.AccesoArchivos.utils.JAXBManagerUsers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -22,7 +23,7 @@ import javafx.collections.ObservableList;
 @XmlRootElement(name = "UserList")
 public class UserList implements Serializable {
 	@XmlElement(name = "Users", type = User.class)
-	private static List<User> Users = new ArrayList();
+	private List<User> Users = new ArrayList();
 
 	private static UserList MiRepositorioU;
 
@@ -56,13 +57,22 @@ public class UserList implements Serializable {
 	}
 
 	public void addUser(User newUser) {
-		this.Users.add(newUser);
-	}
-	public void removeUser(User OldUser) throws JAXBException {
 		
-		OldUser.setName(OldUser.getName()+"_Erased");
-		JAXBManagerUsers.marshal(Users, "UsersList.xml");
-
+		if(this.Users!=null&&newUser!=null) {
+			this.Users.add(newUser);
+		}
+		else {
+			System.out.println("error: newUser era null");
+		}
+	}
+	
+	public void removeUser(User OldUser) throws JAXBException {
+		if(OldUser!=null) {
+			OldUser.setName(OldUser.getName()+"_Erased");
+		}
+		else {
+			System.out.println("error: oldUser era null");
+		}
 	}
 	
 	public ObservableList<User> accesUsersAsObservable() {
@@ -71,5 +81,35 @@ public class UserList implements Serializable {
 			result.add(u);
 		}
 		return result;
+	}
+	
+	public void save() throws IOException, JAXBException {
+		
+		BufferedWriter writer = new BufferedWriter(new FileWriter(new File("UsersList.xml")));
+		
+		JAXBContext context= JAXBContext.newInstance(UserList.class);
+		
+		Marshaller m= context.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
+		m.marshal(MiRepositorioU, writer);
+		writer.close();
+	}
+	
+	public void charge(){
+		JAXBContext jaxbC;
+		try {
+			jaxbC=JAXBContext.newInstance(UserList.class);
+			Unmarshaller um = jaxbC.createUnmarshaller();
+			UserList ul=(UserList)um.unmarshal(new File("UsersList.xml"));
+			Users = new ArrayList();
+			for(User u:ul.getUsers()){		
+				addUser(u);
+				
+			}
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

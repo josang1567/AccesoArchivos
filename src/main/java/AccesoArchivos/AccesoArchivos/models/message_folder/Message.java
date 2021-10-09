@@ -13,16 +13,14 @@ public class Message {
 	private int id;
 	private String date;
 	private String data;
-	@XmlTransient
-	private User user; //<-- ¿que pasa si borras el user?
+	private int user; //<-- ¿que pasa si borras el user?
 	//private String user_name;  ???  <--solución?
-	@XmlTransient
 	private Room room;
 	
 	public Message() {
 		this.date=null;
 		this.data="";
-		this.user=null;
+		this.user=-1;
 		this.room=null;
 	}
 	
@@ -31,7 +29,7 @@ public class Message {
 		this.id = id;
 		
 		this.data = data;
-		this.user = user;
+		this.user = user.getId();
 		this.room = room;
 		//convertir ldt a string:
 		String day = date.getDayOfMonth()+"";
@@ -65,11 +63,11 @@ public class Message {
 		this.data = data;
 	}
 	@XmlTransient
-	public User getUser() {
+	public int getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(int user) {
 		this.user = user;
 	}
 	@XmlTransient

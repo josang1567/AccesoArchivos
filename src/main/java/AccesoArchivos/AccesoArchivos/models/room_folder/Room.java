@@ -73,8 +73,8 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "";//"Room [id=" + id + ", name=" + name + ", description=" + description + ", messages=" + messages
-				//+ ", log_users=" + log_users + "]";
+		return "Room [id=" + id + ", name=" + name + ", description=" + description + ", messages=" + messages
+				+ ", log_users=" + log_users + "]";
 	}
 
 	@Override
