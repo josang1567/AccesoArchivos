@@ -76,7 +76,7 @@ public class PrimaryController { //login
 				alert.setContentText("¿Este usuario no existe, quiere crearlo ahora?");
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK){
-					user=new User(0,txt_name.getText(),txt_password.getText(),true);
+					user=new User(ul.get_new_Id(),txt_name.getText(),txt_password.getText(),true);
 					ul.addUser(user);
 					ul.save();
 					login_register=true;

@@ -83,6 +83,11 @@ public class UserList implements Serializable {
 		return result;
 	}
 	
+	public int get_new_Id() {
+		charge();	
+		return (Users.get(Users.size()-1).getId())+1;
+	}
+	
 	public void save() throws IOException, JAXBException {
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(new File("UsersList.xml")));
