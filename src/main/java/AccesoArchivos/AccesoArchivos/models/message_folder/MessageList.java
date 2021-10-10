@@ -12,6 +12,7 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,6 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
+import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -76,6 +79,23 @@ public class MessageList implements Serializable{
 		}
 		return result;
 	}
+	public void charge(){
+		JAXBContext jaxbC;
+		try {
+			jaxbC=JAXBContext.newInstance(UserList.class);
+			Unmarshaller um = jaxbC.createUnmarshaller();
+			MessageList ul=(MessageList)um.unmarshal(new File("MessagesList.xml"));
+			Messages = new ArrayList();
+			for(Message u:ul.getMessages()){		
+				addMessages(u);
+				
+			}
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public void save() throws IOException, JAXBException {
 
@@ -88,5 +108,9 @@ public class MessageList implements Serializable{
 		m.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
 		m.marshal(MiRepositorioM, writer);
 		writer.close();
+	}
+	public int get_new_Id() {
+		charge();	
+		return (Messages.get(Messages.size()-1).getId())+1;
 	}
 }
