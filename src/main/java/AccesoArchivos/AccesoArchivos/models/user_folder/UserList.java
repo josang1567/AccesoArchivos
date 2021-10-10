@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -86,6 +88,19 @@ public class UserList implements Serializable {
 	public int get_new_Id() {
 		charge();	
 		return (Users.get(Users.size()-1).getId())+1;
+	}
+	
+	public void reeplaceUser(User u) {
+		if(u!=null&&Users!=null&&Users.contains(u)) {
+			boolean done=false;
+			for(int i=0;i<Users.size()&&!done;i++) {
+				if(Users.get(i).getId()==u.getId()) {
+					Users.add(i, u);
+					Users.remove(i+1);
+					done=true;
+				}
+			}
+		}
 	}
 	
 	public void save() throws IOException, JAXBException {

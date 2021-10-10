@@ -2,6 +2,8 @@ package AccesoArchivos.AccesoArchivos;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.xml.bind.JAXBException;
 
@@ -10,6 +12,7 @@ import AccesoArchivos.AccesoArchivos.models.message_folder.MessageList;
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 
 public class Chat_Room_Controller {
+	public static Timer  t=null;
 	private User user;
 	private Room room;
 	private RoomList rl;
@@ -77,14 +81,14 @@ public class Chat_Room_Controller {
 				v.setValue(eachroom.getValue().getDate().toString() + "\n" + eachroom.getValue().getData());
 				return v;
 			});
-
-			if (messages.size() > 0) {
-				column_user.setCellValueFactory(eachuser -> {
-					SimpleStringProperty v = new SimpleStringProperty();
-					v.setValue(eachuser.getValue().getName());
-					return v;
-				});
-			}
+		}
+		
+		if (users.size() > 0) {
+			column_user.setCellValueFactory(eachuser -> {
+				SimpleStringProperty v = new SimpleStringProperty();
+				v.setValue(eachuser.getValue().getName());				
+				return v;
+			});
 		}
 	}
 
@@ -139,6 +143,18 @@ public class Chat_Room_Controller {
 	}
 
 	public void sincronize() {
+		t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                	rl.charge();
+                	room=rl.refresh(room);
+                	updateRoomInfo();
+                	System.out.println("hola");
+                });
+            }
+        }, 0, 750);
 		
 		
 	}

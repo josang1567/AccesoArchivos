@@ -141,6 +141,7 @@ public class PrimaryController { //login
 					try {			
 						
 						user.setOnline(false);
+						ul.reeplaceUser(user);
 						ul.save();
 						
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));

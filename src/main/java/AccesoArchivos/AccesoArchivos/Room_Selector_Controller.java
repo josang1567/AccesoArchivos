@@ -85,6 +85,9 @@ public class Room_Selector_Controller {
 			root = loader.load();
 			Scene scene= new Scene(root);
 			Chat_Room_Controller chat_room=loader.getController();
+			room.getLog_users().add(user);
+			RoomList rl=RoomList.getMiRepositorioM();
+			rl.save();
 			chat_room.setController(user,room);
 			Stage stage2= new Stage();
 			stage2.setScene(scene);
@@ -103,9 +106,12 @@ public class Room_Selector_Controller {
 				public void handle(WindowEvent e) {				
 					
 					try {			
-						user.setOnline(false);
-						UserList ul=UserList.getMiRepositorioU();
-						ul.save();
+
+						chat_room.t.cancel();
+						
+						room.getLog_users().remove(user);
+						rl.reeplaceRoom(room);
+						rl.save();
 						
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
 						Parent root = loader.load();
@@ -120,15 +126,46 @@ public class Room_Selector_Controller {
 						stage2.setResizable(false);;
 						stage2.initModality(Modality.WINDOW_MODAL);
 						stage2.show();
-					} catch (IOException | JAXBException e1) {
+						
+						stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+							@Override
+							public void handle(WindowEvent e) {				
+								
+								try {			
+									user.setOnline(false);
+									UserList ul=UserList.getMiRepositorioU();
+									ul.save();
+									
+									FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+									Parent root = loader.load();
+									Scene scene= new Scene(root);
+									Stage stage2= new Stage();
+									stage2.setScene(scene);
+									Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+									stage2.getIcons().add(image);
+									stage2.setTitle("Inicio de Sesión");
+									stage2.setResizable(false);;
+									stage2.initModality(Modality.WINDOW_MODAL);
+									stage2.show();
+								} catch (IOException | JAXBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								
+							}
+						});
+					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					} catch (JAXBException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
 					}
 					
 				}
 			});
 			
-		} catch (IOException e2) {
+		} catch (IOException | JAXBException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}

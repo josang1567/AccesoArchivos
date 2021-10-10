@@ -119,4 +119,17 @@ public class RoomList {
 		return refresh;
 	}
 	
+	public void reeplaceRoom(Room r) {
+		if(r!=null&&Rooms!=null&&Rooms.contains(r)) {
+			boolean done=false;
+			for(int i=0;i<Rooms.size()&&!done;i++) {
+				if(Rooms.get(i).getId()==r.getId()) {
+					Rooms.add(i, r);
+					Rooms.remove(i+1);
+					done=true;
+				}
+			}
+		}
+	}
+	
 }
