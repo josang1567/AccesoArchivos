@@ -105,5 +105,18 @@ public class RoomList {
 			e.printStackTrace();
 		}
 	}
+	public Room refresh(Room sala) {
+		Room refresh= new Room();
+		boolean encontrado=false;
+		charge();
+		for (int i = 0; i < Rooms.size() && !encontrado ; i++) {
+			if(Rooms.get(i).equals(sala)) {
+				refresh=Rooms.get(i);
+				encontrado=true;
+			}
+			
+		}
+		return refresh;
+	}
 	
 }

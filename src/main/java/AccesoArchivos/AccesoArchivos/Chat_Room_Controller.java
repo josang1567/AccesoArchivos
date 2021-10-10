@@ -26,6 +26,7 @@ public class Chat_Room_Controller {
 	
 	private User user;
 	private Room room;
+	private RoomList rl;
 	private ObservableList<Message> messages=FXCollections.observableArrayList();
 	private ObservableList<User> users=FXCollections.observableArrayList();
 	
@@ -48,6 +49,8 @@ public class Chat_Room_Controller {
 	
 	@FXML
 	public void setController(User u, Room r) {
+		rl=RoomList.getMiRepositorioM();
+		rl.charge();
 		user=u;
 		room=r;
 		lab_room_Name.setText(r.getName());
@@ -89,6 +92,7 @@ public class Chat_Room_Controller {
 	
 	private void updateRoomInfo(){
 		//traerse los xml y actualizar messages y users arriba
+		
 		messages=FXCollections.observableArrayList();
 		users=FXCollections.observableArrayList();
 		for(Message m:room.getMessages()) {
