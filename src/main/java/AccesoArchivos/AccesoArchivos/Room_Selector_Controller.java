@@ -12,6 +12,7 @@ import AccesoArchivos.AccesoArchivos.models.message_folder.Message;
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,11 +32,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class Room_Selector_Controller {
-	
-	private User user;	
+
+	private User user;
 	private Room room;
 	private RoomList rl;
-	
+
 	@FXML
 	protected Pane options_Pane;
 	@FXML
@@ -48,157 +49,130 @@ public class Room_Selector_Controller {
 	protected TableColumn<Room, String> col_asunto;
 	@FXML
 	protected TableColumn<Room, String> col_description;
-	
+
 	public void setController(User u) {
-		rl=RoomList.getMiRepositorioM();
+		rl = RoomList.getMiRepositorioM();
 		rl.charge();
-		
-		user=u;
+
+		user = u;
 		btn_user.setText(u.getName());
 		ObservableList<Room> OLrooms = rl.accesRoomsAsObservable();
 		table_room.setItems(OLrooms);
 		setTableAndDetailsInfo();
 	}
-	
+
 	public void setTableAndDetailsInfo() {
-		if (rl.getRooms().size()>0) {
-			col_asunto.setCellValueFactory(eachroom->{
-	    		SimpleStringProperty v=new SimpleStringProperty();
-	    		v.setValue(eachroom.getValue().getName());
-	    		return v;
-	    	});
-			
-			col_description.setCellValueFactory(eachroom->{
-	    		SimpleStringProperty v=new SimpleStringProperty();
-	    		v.setValue(eachroom.getValue().getDescription());
-	    		return v;
-	    	});
+		if (rl.getRooms().size() > 0) {
+			col_asunto.setCellValueFactory(eachroom -> {
+				SimpleStringProperty v = new SimpleStringProperty();
+				v.setValue(eachroom.getValue().getName());
+				return v;
+			});
+
+			col_description.setCellValueFactory(eachroom -> {
+				SimpleStringProperty v = new SimpleStringProperty();
+				v.setValue(eachroom.getValue().getDescription());
+				return v;
+			});
 		}
 	}
-	
+
 	public void enterRoom() {
 		
-//		try {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource("chat_room.fxml"));
-//			Parent root;
-//			root = loader.load();
-//			Scene scene= new Scene(root);
-//			Chat_Room_Controller chat_room= loader.getController();
-//			
-//			Message m1=new Message(0, LocalDateTime.now(), "123456789/123456789/123456789/123456789/12345678\n9/123456789/", user, room);
-//			Message m2=new Message(0, LocalDateTime.now(), "que pasa xd", user, room);
-//			ObservableList<Message> messages=FXCollections.observableArrayList();
-//			messages.add(m1);
-//			messages.add(m2);
-//			room.setMessages(messages);
-//			List<User> usersprueba=new ArrayList();
-//			usersprueba.add(new User(0,"name","",true));
-//			usersprueba.add(new User(0,"prueba1","",true));
-//			usersprueba.add(new User(0,"prueba2","",true));
-//			room.setLog_users(usersprueba);
-//			
-//			
-//			chat_room.setController(user,room);
-//			Stage stage2= new Stage();
-//			stage2.setScene(scene);
-//			Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-//			stage2.getIcons().add(image);
-//			stage2.setTitle("Chat XML");
-//			stage2.setResizable(false);;
-//			stage2.initModality(Modality.WINDOW_MODAL);
-//			
-//			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
-//			stage.close();
-//			//------------------------------PROBANDO---------------------------------
-//			
-//			rl= rl.charge(new File("RoomList.xml"));
-//			rl.addRoom(room);
-//			try {
-//				JAXBManagerRooms.marshal(rl, new File("Roomlist.xml"));
-//			} catch (JAXBException e2) {
-//				// TODO Auto-generated catch block
-//				e2.printStackTrace();
-//			}
-//			
-//			
-//			//------------------------------------------------------------------------
-//			stage2.show();
-//			
-//			
-//			stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
-//				@Override
-//				public void handle(WindowEvent e) {				
-//					
-//					try {			
-//						
-//						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
-//						Parent root = loader.load();
-//						Scene scene= new Scene(root);
-//						Room_Selector_Controller room_selector= loader.getController();
-//						room_selector.setController(user);
-//						Stage stage2= new Stage();
-//						stage2.setScene(scene);
-//						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-//						stage2.getIcons().add(image);
-//						stage2.setTitle("Chat XML");
-//						stage2.setResizable(false);;
-//						stage2.initModality(Modality.WINDOW_MODAL);
-//						stage2.show();
-//					} catch (IOException e1) {
-//						// TODO Auto-generated catch block
-//						e1.printStackTrace();
-//					}
-//					
-//				}
-//			});
-//			
-//		} catch (IOException e2) {
-//			// TODO Auto-generated catch block
-//			e2.printStackTrace();
-//		}
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("chat_room.fxml"));
+			Parent root;
+			root = loader.load();
+			Scene scene= new Scene(root);
+			Chat_Room_Controller chat_room=loader.getController();
+			chat_room.setController(user,room);
+			Stage stage2= new Stage();
+			stage2.setScene(scene);
+			Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+			stage2.getIcons().add(image);
+			stage2.setTitle("Chat: "+room.getName());
+			stage2.setResizable(false);;
+			stage2.initModality(Modality.WINDOW_MODAL);
+			
+			Stage stage = (Stage) this.btn_enter.getScene().getWindow();
+			stage.close();
+
+			stage2.show();
+			stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent e) {				
+					
+					try {			
+						user.setOnline(false);
+						UserList ul=UserList.getMiRepositorioU();
+						ul.save();
+						
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
+						Parent root = loader.load();
+						Scene scene= new Scene(root);
+						Room_Selector_Controller room_selector= loader.getController();
+						room_selector.setController(user);
+						Stage stage2= new Stage();
+						stage2.setScene(scene);
+						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+						stage2.getIcons().add(image);
+						stage2.setTitle("Chat XML");
+						stage2.setResizable(false);;
+						stage2.initModality(Modality.WINDOW_MODAL);
+						stage2.show();
+					} catch (IOException | JAXBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			});
+			
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
 		
 		
 	}
-	
+
 	@FXML
 	private void open_Options_Pane() {
 		options_Pane.setVisible(true);
 	}
-	
+
 	@FXML
 	private void close_Options_Pane() {
 		options_Pane.setVisible(false);
 	}
-	
-    @FXML
-    private void changeColorUserName() {
-    	btn_user.setTextFill(Color.RED);
-    }
-    
-    @FXML
-    private void changeColorDefaultUserName() {
-    	btn_user.setTextFill(Color.BLACK);
-    }
 
-    @FXML
-	public void select_Room() { 
-		
-		if(rl.getRooms().size()>0) {
-			if(table_room.getSelectionModel().getSelectedItem()!=null) {
-				room= this.table_room.getSelectionModel().getSelectedItem();
+	@FXML
+	private void changeColorUserName() {
+		btn_user.setTextFill(Color.RED);
+	}
+
+	@FXML
+	private void changeColorDefaultUserName() {
+		btn_user.setTextFill(Color.BLACK);
+	}
+
+	@FXML
+	public void select_Room() {
+
+		if (rl.getRooms().size() > 0) {
+			if (table_room.getSelectionModel().getSelectedItem() != null) {
+				room = this.table_room.getSelectionModel().getSelectedItem();
 				btn_enter.setDisable(false);
-			}
-			else {
-				room=null;
+			} else {
+				room = null;
 				btn_enter.setDisable(true);
 			}
 
+		} else {
+			room = null;
 		}
-		else { 
-			room=null;
-		}
-		
+
 	}
 
 }

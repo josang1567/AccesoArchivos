@@ -58,6 +58,7 @@ public class PrimaryController { //login
 				if(user.getPassword().matches(txt_password.getText())&&!user.isOnline()) {
 					login_register=true;
 					user.setOnline(true);
+					ul.save();
 				}
 				else {
 					//error contraseña incorrecta o user logeado
@@ -70,11 +71,16 @@ public class PrimaryController { //login
 					else {
 						f="Contraseña incorrecta.";
 					}
+					
+					user=null;
+					
 					Alert alert=new Alert(AlertType.INFORMATION);
 		    		alert.setHeaderText(null);
 		    		alert.setTitle("Información");
 		    		alert.setContentText(f);
 		    		alert.showAndWait();
+		    		
+		    		
 				}
 			}
 			else { //registro
@@ -134,6 +140,9 @@ public class PrimaryController { //login
 					
 					try {			
 						
+						user.setOnline(false);
+						ul.save();
+						
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
 						Parent root;
 						root = loader.load();
@@ -147,7 +156,7 @@ public class PrimaryController { //login
 						stage2.initModality(Modality.APPLICATION_MODAL);
 						stage2.show();
 						System.out.println("se ha cerrado el usuario");
-					} catch (IOException e1) {
+					} catch (IOException | JAXBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}

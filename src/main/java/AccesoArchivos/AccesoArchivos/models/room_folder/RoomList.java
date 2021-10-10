@@ -77,7 +77,7 @@ public class RoomList {
 		return result;
 	}
 	
-	public static void save() throws IOException, JAXBException {
+	public void save() throws IOException, JAXBException {
 
 		BufferedWriter writer = new BufferedWriter(new FileWriter(new File("RoomsList.xml")));
 		

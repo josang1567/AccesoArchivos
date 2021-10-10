@@ -32,6 +32,7 @@ public void start(Stage stage) throws IOException {
 
     public static void main(String[] args) {
         launch();
+        System.exit(0);
     }
 
 }

@@ -25,21 +25,9 @@
         <password>1234</password>
     </Users>
     <Users>
-        <id>0</id>
-        <name>DavidSM24</name>
-        <online>true</online>
-        <password>magnokurai24</password>
-    </Users>
-    <Users>
-        <id>0</id>
+        <id>4</id>
         <name>1</name>
-        <online>true</online>
+        <online>false</online>
         <password>1</password>
-    </Users>
-    <Users>
-        <id>1</id>
-        <name>ramnodmf</name>
-        <online>true</online>
-        <password>1234</password>
     </Users>
 </UserList>
