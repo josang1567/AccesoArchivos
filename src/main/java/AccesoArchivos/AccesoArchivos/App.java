@@ -23,7 +23,7 @@ public void start(Stage stage) throws IOException {
 		stage2.setScene(scene);
 		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
 		stage2.getIcons().add(image);
-		stage2.setTitle("Chat XML");
+		stage2.setTitle("Inicio de Sesión");
 		stage2.setResizable(false);;
 		stage2.initModality(Modality.APPLICATION_MODAL);
 		
