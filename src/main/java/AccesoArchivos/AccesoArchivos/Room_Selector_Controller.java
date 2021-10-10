@@ -34,7 +34,7 @@ public class Room_Selector_Controller {
 	
 	private User user;	
 	private Room room;
-	private RoomList rl=RoomList.getMiRepositorioM();
+	private RoomList rl;
 	
 	@FXML
 	protected Pane options_Pane;
@@ -50,7 +50,7 @@ public class Room_Selector_Controller {
 	protected TableColumn<Room, String> col_description;
 	
 	public void setController(User u) {
-		//falta cargar datos...
+		rl=RoomList.getMiRepositorioM();
 		rl.charge();
 		
 		user=u;
@@ -182,7 +182,7 @@ public class Room_Selector_Controller {
     }
 
     @FXML
-	public void select_Room() { //actualizar esto cuando tenga tiempo por una variable power
+	public void select_Room() { 
 		
 		if(rl.getRooms().size()>0) {
 			if(table_room.getSelectionModel().getSelectedItem()!=null) {
@@ -195,7 +195,7 @@ public class Room_Selector_Controller {
 			}
 
 		}
-		else { //no hay charas
+		else { 
 			room=null;
 		}
 		

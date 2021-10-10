@@ -55,16 +55,25 @@ public class PrimaryController { //login
 			}
 			
 			if(user!=null) {
-				if(user.getPassword().matches(txt_password.getText())) {
+				if(user.getPassword().matches(txt_password.getText())&&!user.isOnline()) {
 					login_register=true;
 					user.setOnline(true);
 				}
 				else {
-					//error contraseña incorrecta
+					//error contraseña incorrecta o user logeado
+					
+					String f="";
+					
+					if(user.getPassword().matches(txt_password.getText())&&user.isOnline()) {
+						f="Este usuario ha iniciado ya sesión, inténtelo con otro usuario.";
+					}
+					else {
+						f="Contraseña incorrecta.";
+					}
 					Alert alert=new Alert(AlertType.INFORMATION);
 		    		alert.setHeaderText(null);
 		    		alert.setTitle("Información");
-		    		alert.setContentText("Contraseña incorrecta");
+		    		alert.setContentText(f);
 		    		alert.showAndWait();
 				}
 			}
