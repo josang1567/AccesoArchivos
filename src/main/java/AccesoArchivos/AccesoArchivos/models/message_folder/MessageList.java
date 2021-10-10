@@ -18,9 +18,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
-import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
-import AccesoArchivos.AccesoArchivos.models.user_folder.User;
 import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,10 +76,11 @@ public class MessageList implements Serializable{
 		}
 		return result;
 	}
+	
 	public void charge(){
 		JAXBContext jaxbC;
 		try {
-			jaxbC=JAXBContext.newInstance(UserList.class);
+			jaxbC=JAXBContext.newInstance(MessageList.class);
 			Unmarshaller um = jaxbC.createUnmarshaller();
 			MessageList ul=(MessageList)um.unmarshal(new File("MessagesList.xml"));
 			Messages = new ArrayList();
