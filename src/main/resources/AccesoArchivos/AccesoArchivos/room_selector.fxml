@@ -8,13 +8,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="600.0" style="-fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Room_Selector_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="600.0" style="-fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 ); -fx-background-image: url('file:src/main/resources/images/fondoroomselector.png');" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Room_Selector_Controller">
    <children>
-      <TableView fx:id="table_room" layoutY="39.0" onKeyReleased="#select_Room" onMouseClicked="#select_Room" prefHeight="334.0" prefWidth="600.0">
+      <TableView fx:id="table_room" layoutY="39.0" onKeyReleased="#select_Room" onMouseClicked="#select_Room" prefHeight="334.0" prefWidth="600.0" stylesheets="@../Styles/Login_Button.css">
         <columns>
-          <TableColumn fx:id="col_asunto" prefWidth="216.6666818857193" maxWidth="300" text="Asunto" />
-          <TableColumn fx:id="col_description" editable="false" prefWidth="381.99998474121094" maxWidth="300" text="Descripción" />
+          <TableColumn fx:id="col_asunto" maxWidth="300" prefWidth="216.6666818857193" text="Asunto" />
+          <TableColumn fx:id="col_description" editable="false" maxWidth="300" prefWidth="381.99998474121094" text="Descripción" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -28,11 +29,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_user" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Button" />
+            <Button fx:id="btn_user" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Button">
+               <font>
+                  <Font name="Modern No. 20" size="20.0" />
+               </font></Button>
          </children>
       </GridPane>
-      <Pane fx:id="options_Pane" onMouseExited="#close_Options_Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0; -fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );;" visible="false" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+      <Pane fx:id="options_Pane" onMouseExited="#close_Options_Pane" opacity="0.92" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url('file:src/main/resources/images/fondooptionpane.png'); -fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 ); -fx-background-color: white;" visible="false" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
       <AnchorPane layoutX="274.0" layoutY="384.0" />
-      <Button fx:id="btn_enter" disable="true" layoutX="250.0" layoutY="384.0" mnemonicParsing="false" onAction="#enterRoom" text="Entrar en la sala" />
+      <Button fx:id="btn_enter" layoutX="263.0" layoutY="377.0" mnemonicParsing="false" onAction="#enterRoom" style="-fx-background-color: #090a0c; -fx-background-radius: 5,4,3,5; -fx-background-insets: 0,1,2,0; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-padding: 10 20 10 20;" text="Entrar" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

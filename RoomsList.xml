@@ -3,12 +3,6 @@
     <Rooms>
         <description>Sala de mates</description>
         <id>0</id>
-        <log_users>
-            <id>3</id>
-            <name>Sara</name>
-            <online>true</online>
-            <password>1234</password>
-        </log_users>
         <messages>
             <data>hola</data>
             <date>(10/OCTOBER/2021)</date>

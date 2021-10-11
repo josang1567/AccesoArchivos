@@ -187,4 +187,27 @@
             <password>1234</password>
         </user>
     </Messages>
+    <Messages>
+        <data>f
+</data>
+        <date>(11/OCTOBER/2021)</date>
+        <id>17</id>
+        <user>
+            <id>3</id>
+            <name>Sara</name>
+            <online>true</online>
+            <password>1234</password>
+        </user>
+    </Messages>
+    <Messages>
+        <data>h</data>
+        <date>(11/OCTOBER/2021)</date>
+        <id>18</id>
+        <user>
+            <id>0</id>
+            <name>Javier</name>
+            <online>true</online>
+            <password>1234</password>
+        </user>
+    </Messages>
 </MessageList>

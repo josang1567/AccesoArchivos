@@ -186,7 +186,7 @@ public class Room_Selector_Controller {
 
 	@FXML
 	private void changeColorUserName() {
-		btn_user.setTextFill(Color.RED);
+		btn_user.setTextFill(Color.WHITE);
 	}
 
 	@FXML

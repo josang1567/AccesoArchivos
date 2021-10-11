@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Chat_Room_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:src/main/resources/images/fondochat.png');" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccesoArchivos.AccesoArchivos.Chat_Room_Controller">
    <children>
       <TextArea fx:id="txt_write" layoutX="23.0" layoutY="331.0" prefHeight="63.0" prefWidth="430.0" />
       <TableView fx:id="table_messages" layoutX="23.0" layoutY="52.0" prefHeight="271.0" prefWidth="430.0" stylesheets="@../Styles/Login_Button.css">
@@ -23,7 +24,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="table_users" layoutX="462.0" layoutY="51.0" prefHeight="271.0" prefWidth="131.0">
+      <TableView fx:id="table_users" layoutX="462.0" layoutY="51.0" prefHeight="271.0" prefWidth="131.0" stylesheets="@../Styles/Login_Button.css">
         <columns>
           <TableColumn fx:id="column_user" prefWidth="129.99998982747397" text="Usuarios en esta sala" />
         </columns>
@@ -37,9 +38,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lab_room_Name" text="Label" />
+            <Label fx:id="lab_room_Name" text="Label">
+               <font>
+                  <Font name="Modern No. 20" size="20.0" />
+               </font></Label>
          </children>
       </GridPane>
       <Pane layoutX="23.0" layoutY="52.0" prefHeight="262.0" prefWidth="404.0" />
+      <Pane layoutX="462.0" layoutY="51.0" prefHeight="271.0" prefWidth="131.0" />
    </children>
 </AnchorPane>
