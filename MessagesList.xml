@@ -210,4 +210,27 @@
             <password>1234</password>
         </user>
     </Messages>
+    <Messages>
+        <data>buenos dias</data>
+        <date>(12/OCTOBER/2021)</date>
+        <id>19</id>
+        <user>
+            <id>4</id>
+            <name>1</name>
+            <online>true</online>
+            <password>1</password>
+        </user>
+    </Messages>
+    <Messages>
+        <data>buenas
+</data>
+        <date>(12/OCTOBER/2021)</date>
+        <id>20</id>
+        <user>
+            <id>4</id>
+            <name>1</name>
+            <online>true</online>
+            <password>1</password>
+        </user>
+    </Messages>
 </MessageList>
