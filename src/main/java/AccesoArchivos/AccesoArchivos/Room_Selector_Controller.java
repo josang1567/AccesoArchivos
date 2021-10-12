@@ -106,62 +106,28 @@ public class Room_Selector_Controller {
 				public void handle(WindowEvent e) {				
 					
 					try {			
-
+						user.setOnline(false);
+						UserList ul=UserList.getMiRepositorioU();
+						ul.reeplaceUser(user);
+						ul.save();
 						chat_room.t.cancel();
 						
-						room.getLog_users().remove(user);
-						rl.reeplaceRoom(room);
-						rl.save();
-						
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
-						Parent root = loader.load();
-						Scene scene= new Scene(root);
-						Room_Selector_Controller room_selector= loader.getController();
-						room_selector.setController(user);
-						Stage stage2= new Stage();
-						stage2.setScene(scene);
-						Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-						stage2.getIcons().add(image);
-						stage2.setTitle("Chat XML");
-						stage2.setResizable(false);;
-						stage2.initModality(Modality.WINDOW_MODAL);
-						stage2.show();
-						
-						stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
-							@Override
-							public void handle(WindowEvent e) {				
-								
-								try {			
-									user.setOnline(false);
-									UserList ul=UserList.getMiRepositorioU();
-									ul.save();
-									
-									FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
-									Parent root = loader.load();
-									Scene scene= new Scene(root);
-									Stage stage2= new Stage();
-									stage2.setScene(scene);
-									Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
-									stage2.getIcons().add(image);
-									stage2.setTitle("Inicio de Sesión");
-									stage2.setResizable(false);;
-									stage2.initModality(Modality.WINDOW_MODAL);
-									stage2.show();
-								} catch (IOException | JAXBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								
+						if(room.getLog_users().size()>0) {
+							if(room.getLog_users().size()==1) {
+								room.getLog_users().remove(0);
 							}
-						});
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (JAXBException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
+							else {
+								int i=room.getLog_users().lastIndexOf(user);
+								room.getLog_users().remove(i);
+							}
+							rl.reeplaceRoom(room);
+							rl.save();
+						}
+						
 					}
-					
+					catch (Exception e2) {
+						// TODO: handle exception
+					}	
 				}
 			});
 			

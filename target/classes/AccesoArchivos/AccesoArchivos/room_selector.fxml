@@ -35,9 +35,32 @@
                </font></Button>
          </children>
       </GridPane>
-      <Pane fx:id="options_Pane" onMouseExited="#close_Options_Pane" opacity="0.92" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url('file:src/main/resources/images/fondooptionpane.png'); -fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 ); -fx-background-color: white;" visible="false" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+      <Pane fx:id="options_Pane" onMouseExited="#close_Options_Pane" opacity="0.92" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url('file:src/main/resources/images/fondooptionpane.png'); -fx-background-radius: 5; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );" visible="false" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+         <children>
+            <GridPane prefHeight="26.0" prefWidth="110.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="btn_user1" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Eliminar Usuario" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Modern No. 20" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_user11" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Cerrar Sesióin">
+                     <font>
+                        <Font name="Modern No. 20" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </children></Pane>
       <AnchorPane layoutX="274.0" layoutY="384.0" />
-      <Button fx:id="btn_enter" layoutX="263.0" layoutY="377.0" mnemonicParsing="false" onAction="#enterRoom" style="-fx-background-color: #090a0c; -fx-background-radius: 5,4,3,5; -fx-background-insets: 0,1,2,0; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-padding: 10 20 10 20;" text="Entrar" textFill="WHITE">
+      <Button fx:id="btn_enter" disable="true" layoutX="263.0" layoutY="377.0" mnemonicParsing="false" onAction="#enterRoom" style="-fx-background-color: #090a0c; -fx-background-radius: 5,4,3,5; -fx-background-insets: 0,1,2,0; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-padding: 10 20 10 20;" text="Entrar" textFill="WHITE">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>

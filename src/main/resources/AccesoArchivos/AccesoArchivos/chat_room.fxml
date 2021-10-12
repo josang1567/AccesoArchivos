@@ -30,7 +30,7 @@
         </columns>
       </TableView>
       <Button fx:id="btn_write" layoutX="490.0" layoutY="348.0" mnemonicParsing="false" onAction="#send_Message" stylesheets="@../Styles/Login_Button.css" text="Enviar" />
-      <GridPane layoutX="23.0" layoutY="14.0">
+      <GridPane layoutX="91.0" layoutY="14.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -46,5 +46,6 @@
       </GridPane>
       <Pane layoutX="23.0" layoutY="52.0" prefHeight="262.0" prefWidth="404.0" />
       <Pane layoutX="462.0" layoutY="51.0" prefHeight="271.0" prefWidth="131.0" />
+      <Button fx:id="btn_return" layoutX="33.0" layoutY="8.0" mnemonicParsing="false" onAction="#return_Chat_Selector" stylesheets="@../Styles/Login_Button.css" text="🔙" />
    </children>
 </AnchorPane>

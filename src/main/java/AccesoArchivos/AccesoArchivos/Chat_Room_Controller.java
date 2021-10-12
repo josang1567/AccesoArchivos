@@ -12,16 +12,25 @@ import AccesoArchivos.AccesoArchivos.models.message_folder.MessageList;
 import AccesoArchivos.AccesoArchivos.models.room_folder.Room;
 import AccesoArchivos.AccesoArchivos.models.room_folder.RoomList;
 import AccesoArchivos.AccesoArchivos.models.user_folder.User;
+import AccesoArchivos.AccesoArchivos.models.user_folder.UserList;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Chat_Room_Controller {
 	public static Timer  t=null;
@@ -30,7 +39,9 @@ public class Chat_Room_Controller {
 	private RoomList rl;
 	private ObservableList<Message> messages = FXCollections.observableArrayList();
 	private ObservableList<User> users = FXCollections.observableArrayList();
-
+	
+	@FXML
+	protected Button btn_return;
 	@FXML
 	protected Button btn_write;
 	@FXML
@@ -154,9 +165,69 @@ public class Chat_Room_Controller {
                 	System.out.println("hola");
                 });
             }
-        }, 0, 750);
+        }, 0, 1500);
 		
 		
+	}
+	@FXML
+	private void return_Chat_Selector() throws IOException, JAXBException {
+		t.cancel();
+		
+		int i=room.getLog_users().lastIndexOf(user);
+		room.getLog_users().remove(i);
+		rl.reeplaceRoom(room);
+		rl.save();
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("room_selector.fxml"));
+		Parent root = loader.load();
+		Scene scene= new Scene(root);
+		Room_Selector_Controller room_selector= loader.getController();
+		room_selector.setController(user);
+		Stage stage2= new Stage();
+		stage2.setScene(scene);
+		Image image= new Image("file:src/main/resources/images/icons/icon_app.jpg");
+		stage2.getIcons().add(image);
+		stage2.setTitle("Selector de Sala");
+		stage2.setResizable(false);;
+		stage2.initModality(Modality.WINDOW_MODAL);
+		
+		Stage stage = (Stage) this.btn_return.getScene().getWindow();
+		stage.close();
+		stage2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent e) {				
+				
+				try {			
+					
+					user.setOnline(false);
+					UserList ul=UserList.getMiRepositorioU();
+					ul.reeplaceUser(user);
+					ul.save();
+					
+					if(room.getLog_users().size()>0) {
+						if(room.getLog_users().size()==1) {
+							room.getLog_users().remove(0);
+						}
+						else {
+							int i=room.getLog_users().lastIndexOf(user);
+							room.getLog_users().remove(i);
+							rl.reeplaceRoom(room);
+							rl.save();
+						}
+						rl.reeplaceRoom(room);
+						rl.save();
+					}
+					
+					
+				} catch (IOException | JAXBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		stage2.show();
 	}
 
 }

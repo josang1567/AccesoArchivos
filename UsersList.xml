@@ -21,7 +21,7 @@
     <Users>
         <id>3</id>
         <name>Sara</name>
-        <online>true</online>
+        <online>false</online>
         <password>1234</password>
     </Users>
     <Users>
