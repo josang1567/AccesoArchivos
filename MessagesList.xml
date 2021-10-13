@@ -1,3 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <MessageList>
+    <Messages>
+        <data>aa</data>
+        <date>(13/OCTOBER/2021)</date>
+        <id>1</id>
+        <user>
+            <id>4</id>
+            <name>1</name>
+            <online>true</online>
+            <password>1</password>
+        </user>
+    </Messages>
+    <Messages>
+        <data>bb</data>
+        <date>(13/OCTOBER/2021)</date>
+        <id>2</id>
+        <user>
+            <id>4</id>
+            <name>1</name>
+            <online>true</online>
+            <password>1</password>
+        </user>
+    </Messages>
 </MessageList>

@@ -3,6 +3,28 @@
     <Rooms>
         <description>Sala de mates</description>
         <id>0</id>
+        <messages>
+            <data>aa</data>
+            <date>(13/OCTOBER/2021)</date>
+            <id>1</id>
+            <user>
+                <id>4</id>
+                <name>1</name>
+                <online>true</online>
+                <password>1</password>
+            </user>
+        </messages>
+        <messages>
+            <data>bb</data>
+            <date>(13/OCTOBER/2021)</date>
+            <id>2</id>
+            <user>
+                <id>4</id>
+                <name>1</name>
+                <online>true</online>
+                <password>1</password>
+            </user>
+        </messages>
         <name>Matematicas</name>
     </Rooms>
     <Rooms>
