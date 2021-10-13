@@ -48,7 +48,7 @@
                   <RowConstraints maxHeight="22.0" minHeight="0.0" prefHeight="18.666671752929688" valignment="CENTER" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btn_user1" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Eliminar Usuario" GridPane.rowIndex="2">
+                  <Button fx:id="btn_delete_user" mnemonicParsing="false" onAction="#delete_user" onMouseEntered="#changeColor_delete_user" onMouseExited="#Default_delete_user" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Eliminar Usuario" GridPane.rowIndex="2">
                      <font>
                         <Font name="Modern No. 20" size="12.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_user11" mnemonicParsing="false" onAction="#open_Options_Pane" onMouseEntered="#changeColorUserName" onMouseExited="#changeColorDefaultUserName" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Cerrar Sesióin" GridPane.rowIndex="1">
+                  <Button fx:id="btn_close_sesion" mnemonicParsing="false" onAction="#close_session" onMouseEntered="#changeColor_close_Session" onMouseExited="#Default_close_session" style="-fx-padding: 0; -fx-background-insets: 0; -fx-background-color: none;" text="Cerrar Sesión" GridPane.rowIndex="1">
                      <font>
                         <Font name="Modern No. 20" size="12.0" />
                      </font>

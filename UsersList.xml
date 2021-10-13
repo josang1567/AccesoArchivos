@@ -27,7 +27,7 @@
     <Users>
         <id>4</id>
         <name>1</name>
-        <online>true</online>
+        <online>false</online>
         <password>1</password>
     </Users>
 </UserList>
