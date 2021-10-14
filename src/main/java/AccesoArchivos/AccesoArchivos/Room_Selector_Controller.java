@@ -94,10 +94,7 @@ public class Room_Selector_Controller {
 			root = loader.load();
 			Scene scene = new Scene(root);
 			Chat_Room_Controller chat_room = loader.getController();
-			room.getLog_users().add(user);
-			RoomList rl = RoomList.getMiRepositorioM();
-			rl.save();
-			chat_room.setController(user, room);
+			chat_room.setController(user, room.getId());
 			Stage stage2 = new Stage();
 			stage2.setScene(scene);
 			Image image = new Image("file:src/main/resources/images/icons/icon_app.jpg");

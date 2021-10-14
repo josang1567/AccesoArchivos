@@ -25,6 +25,29 @@
                 <password>1</password>
             </user>
         </messages>
+        <messages>
+            <data>hola</data>
+            <date>(14/OCTOBER/2021)</date>
+            <id>4</id>
+            <user>
+                <id>4</id>
+                <name>1</name>
+                <online>true</online>
+                <password>1</password>
+            </user>
+        </messages>
+        <messages>
+            <data>di algo mas original</data>
+            <date>(14/OCTOBER/2021)</date>
+            <id>5</id>
+            <user>
+                <id>3</id>
+                <name>Sara
+(DELETED ACCOUNT)</name>
+                <online>false</online>
+                <password></password>
+            </user>
+        </messages>
         <name>Matematicas</name>
     </Rooms>
     <Rooms>
@@ -55,6 +78,17 @@
     <Rooms>
         <description>zona de noticias</description>
         <id>6</id>
+        <messages>
+            <data>probando usuario eliminado</data>
+            <date>(14/OCTOBER/2021)</date>
+            <id>6</id>
+            <user>
+                <id>3</id>
+                <name>Sara</name>
+                <online>false</online>
+                <password>1234</password>
+            </user>
+        </messages>
         <name>noticias</name>
     </Rooms>
 </RoomList>

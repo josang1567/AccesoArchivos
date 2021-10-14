@@ -60,12 +60,15 @@ public class Chat_Room_Controller {
 	protected TableColumn<User, String> column_user;
 
 	@FXML
-	public void setController(User u, Room r) {
+	public void setController(User u, int i) throws IOException, JAXBException {
+		user = u;
 		rl = RoomList.getMiRepositorioM();
 		rl.charge();
-		user = u;
-		room = r;
-		lab_room_Name.setText(r.getName());
+		room = rl.getRooms().get(i);		
+		room.getLog_users().add(user);
+		rl.reeplaceRoom(room);
+		rl.save();		
+		lab_room_Name.setText(room.getName());
 		for (Message m : room.getMessages()) {
 			messages.add(m);
 		}
@@ -75,7 +78,6 @@ public class Chat_Room_Controller {
 		table_messages.setItems(messages);
 		table_users.setItems(users);
 		setTableAndDetailsInfo();
-		updateRoomInfo();
 		sincronize();
 	}
 
